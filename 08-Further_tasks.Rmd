@@ -1,0 +1,11 @@
+# Further Task {-}
+
+The following task is here to help you prepare for the class test in Week 5. For the class test you will be given a data set to analyse and produce a report using R Markdown given a basic template. Using the *Basic Template* from Moodle, write a report based on the following data sets.
+
+There are several categorical variables in the `evals` data set on the student evaluations of a large sample of professors, for example the `ethnicity` of the professors ("minority" or "not minority") and the `rank` of the professors (i.e. low-status, mid-status or high-status).  Choose one of these categorical variables and prepare a report describing the differences between the different categories of the average evaluation `score` of the professors.
+
+
+<br>
+<br>
+
+

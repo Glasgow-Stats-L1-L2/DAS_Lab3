@@ -1,0 +1,83 @@
+# Code chunks {-}
+
+Code "chunks" allow for R code to be embedded within a document. Not only can the code be easily included within a document, the code can also be evaluated. Hence, you can produce an entire report based on an analysis that is contained within a single file instead of having separate files containing your R code, plot images and comments.
+
+Using R code within an R Markdown document is done within the following environment:
+
+````
+```{r label, echo=FALSE, eval=TRUE, warning=FALSE, message=FALSE}`r ''`
+
+```
+````
+
+where each code chunk is given its own `label`. The additional arguments are:
+
+  * **echo**: include the R code within the code chunk in the document (TRUE/FALSE, default=TRUE);
+  * **eval**: evaluate the R code within the code chunk (TRUE/FALSE, default=TRUE);
+  * **warning**: suppress warnings from R (TRUE/FALSE, default=TRUE); and
+  * **message**: suppress messages from R (TRUE/FALSE, default=TRUE).
+  
+Often the first use of a code chunk in a R Markdown file is to load packages so that functions and datasets are available for analysis.  For example, the following code chunk will load these packages:
+
+* `ggplot2` - to access the `tidyverse` visualization functions
+* `dplyr` - to access the `tidyverse` data manipulation functions
+* `skimr` - to access the `tidyverse` data summary functions
+* `moderndive` - to access data on student feedback contained in `evals` 
+* `datasets` - to access the `iris` data frame 
+
+````
+```{r loadpackages, echo=FALSE, eval=TRUE, warning=FALSE, message=FALSE}`r ''`
+library(ggplot2)
+library(dplyr)
+library(moderndive)
+library(gapminder)
+library(skimr)
+library(mvtnorm)
+library(gridExtra)
+library(kableExtra)
+library(tidyr)
+```
+````
+
+Then, let's say we wanted to select the `score` and `bty_avg` variables from the `evals` data set to be used later, we can do that using the following code chunk:
+
+````
+```{r evals, echo = FALSE, eval = TRUE, warning = FALSE}`r ''`
+evals.scores <- evals %>%
+  select(score, bty_avg)
+```
+````
+
+This will evaluate the R code and store the subsetted data set as the object `evals.scores` so that it can be used later. If you want to embed the code within the Markdown document then you would simply set `echo = TRUE` and it will include the R code as follows:
+
+```{r evals, echo = TRUE, eval = TRUE, warning = FALSE}
+evals.scores <- evals %>%
+  dplyr::select(score, bty_avg)
+```
+
+**Note:** It is usually optional whether the package is specified in front of the function, as in `dplyr::select` here (compare to the previous code chunk above were `select` appears without the package name preceding it - both chunks of code do exactly the same thing), but if you have problems running a particular function, try including the `package name` and `::` before the function. Also, you can always check what functions or datasets are in a particular package using `help(package="packagename")` or refer to the cheat sheets.
+
+Additional arguments can be passed to code chunks other than those displayed above. The most useful ones other than those relate to figure sizing and positioning and are discussed in the **Figures** section later.
+
+<br>
+
+**Task**
+Create some code chunks in your document by copying and modifying the above code into `Week3DA.Rmd`.  `Knit` the `.Rmd` file and notice what is produced in the `Week3DA.pdf` file.
+
+## Inline code {-}
+
+```{r nobs, echo = FALSE, eval = TRUE, warning = FALSE}
+n <- nrow(evals.scores)
+```
+
+R code can be included within text by enclosing the code with `` `r ` ``. This allows for expressions to be evaluated by R and not be hardwired by the user. For example, if you wanted to convey the number of observations within `evals.scores` then we can enclose `nrow(evals.scores)` within `` `r ` `` to obtain the number of observations, rather than hard wiring "`r nrow(evals.scores)`" into the text. This can help to prevent potential human error when presenting information. It can also help with consistency and ease-of-use, since the number of observations could be stored as an R object, e.g. using  `` `r
+n <- nrow(evals.scores)` ``, and referred to whenever necessary within the text using `` `r
+n` ``.
+
+***
+
+**Further information**: Additional details on all of the code chunk options can be found [here](https://rmarkdown.rstudio.com/lesson-3.html) and [here](http://yihui.name/knitr/options/?version=1.1.383&mode=desktop).
+
+<br>
+<br>
+

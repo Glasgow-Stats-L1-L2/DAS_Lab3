@@ -1,0 +1,202 @@
+# Tables of data {-}
+
+There are several ways to produce tables in Markdown. Here, a couple of different approaches will be presented. The first approach uses the `kable` function from the `knitr` package (see also the `kableExtra` package) and essentially puts a wrapper around the table produced in R in order to make it more visually appealing within the R Markdown document.
+
+Let's say we wanted to create a table of the first 5 rows of the `iris` data from the `datasets` library. We can create the table using the `kable` function as follows:
+
+````
+```{r table}`r ''`
+kable(head(iris, n = 5), caption = '\\label{tab:iris} The first 5 rows of the iris data.')
+```
+````
+
+This produces the following table in the `.pdf` document:
+
+```{r iristable, echo=FALSE, fig.align='center'}
+knitr::include_graphics("images/iristable.JPG")
+```
+
+Notice that within the `caption` argument of the `kable` function there is `\\label{tab:iris}`. This is how you label tables in order to refer to the within the text. For example,
+
+```
+Table \ref{tab:iris} displays the first 5 rows of the iris data...
+```
+will produce
+
+```
+Table 1 displays the first 5 rows of the iris data...
+```
+
+where, like for sections, the "1" will be a hyperlink directed to the table.
+
+See also the Example Report Markdown file for an example of using the `kable_styling` function for changing the size and positioning of a table.  For example, its often useful to include
+`kable_styling(font_size = 10, latex_options = 'HOLD_position')` as the final term in the "pipe" to control the size of the font used to construct the table and to ensure the table appears at that location in the document (otherwise it may be placed at the bottom or top of the page).
+
+***
+
+**Further information**: Additional details on using `kable` to produce tables can be found [here](https://bookdown.org/yihui/rmarkdown/r-code.html#tables) and [here](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html#overview).
+
+## Tables of summaries {-}
+
+Often we need to report summary statistics for different subsets in a set of data. For instance we can construct a table of summaries for the sepal length of the different species in the `iris` data using:
+
+```{r summaries, warning=FALSE}
+iris %>%
+  group_by(Species) %>%
+  summarise(n=n(),Mean=round(mean(Sepal.Length),digits=1),
+            St.Dev=round(sd(Sepal.Length),digits=1),
+            Min=min(Sepal.Length), Q1 = quantile(Sepal.Length,0.25),
+            Median=median(Sepal.Length), 
+            Q3 = quantile(Sepal.Length,0.75), Max=max(Sepal.Length)) %>%
+  kable(caption = '\\label{tab:summaries} Summary statistics 
+        on the sepal length by species of irises.') %>%
+  kable_styling(font_size = 10, latex_options = "hold_position")
+```
+
+Alternatively, we can use the `skim()` function in the `skimr` package, as follows:
+
+```{r summariesskim}
+my_skim <- skim_with(base = sfl(n = length))
+iris %>%
+  group_by(Species) %>%
+  select(Sepal.Length,Species) %>%
+  my_skim() %>%
+  transmute(Variable=skim_variable, Species=Species, n=n, Mean=numeric.mean, SD=numeric.sd,
+            Min=numeric.p0, Median=numeric.p50,  Max=numeric.p100, 
+            IQR = numeric.p75-numeric.p50) %>%
+   kable(caption = '\\label{tab:summaryskim} Summary statistics of the sepal length 
+         by species of irises (produced using skim() function).',
+         booktabs = TRUE, linesep = "", digits = 2) %>%
+   kable_styling(font_size = 10, latex_options = "hold_position")
+```
+
+<br>
+
+**Task**
+Include a table of summaries of `Petal.Width` for the different iris species in your document by copying and modifying the above code into `Week3DA.Rmd`.  `Knit` the `.Rmd` file and notice what is produced in the `Week3DA.pdf` file.
+
+<br>
+
+## Contingency Tables {-}
+
+Often we need to report summary statistics for different combinations of categorical variables' values. For instance, we can classify each iris as having a large or small sepal length and then construct a contingency table of the counts or large and small sepal lengths by the different species in the `iris` data using:
+
+```{r, message=FALSE, warning=FALSE}
+iris %>%
+  mutate(sepal.length.class = if_else(Sepal.Length<5.5,'small','large')) %>%
+  group_by(Species, sepal.length.class) %>%
+  summarise(n=n()) %>%
+  spread(sepal.length.class, n) %>%
+  kable() %>%
+  kable_styling(font_size = 10, latex_options = "hold_position")
+```
+
+We achieve this by including the `spread()` function, to create columns for each sepal length class, with the count `n` as the crosstab response value.
+
+One advantage of dplyr is that we can determine what kind of summary statistic we want to see very easily by adjusting our `summarize()` input.
+
+Here instead of displaying frequencies, we can get the average petal length by species & sepal length class:
+
+```{r, message=FALSE, warning=FALSE}
+iris %>%
+  mutate(sepal.length.class = if_else(Sepal.Length<5.5,'small','large')) %>%
+  group_by(Species, sepal.length.class) %>%
+  summarise(mean_petal.length=mean(Petal.Length))%>%
+  spread(sepal.length.class, mean_petal.length)%>%
+  kable(digits = 2) %>%
+  kable_styling(font_size = 10, latex_options = "hold_position")
+```
+
+Lastly, we can find proportions by creating a new, calculated variable dividing row frequency by table frequency.
+
+```{r, message=FALSE, warning=FALSE}
+iris %>%
+  mutate(sepal.length.class = if_else(Sepal.Length<5.5,'small','large')) %>%
+  group_by(Species, sepal.length.class) %>%
+  summarize(n=n())%>%
+  mutate(prop=n/sum(n))%>%   # our new proportion variable
+  kable(digits = 2) %>%
+  kable_styling(font_size = 10, latex_options = "hold_position")
+```
+
+And we can create a contingency table of proportion values by applying the same spread command as before. Vary the `group_by()` and `spread()` arguments to produce proportions of different variables.
+
+```{r, message=FALSE, warning=FALSE}
+iris %>%
+  mutate(sepal.length.class = if_else(Sepal.Length<5.5,'small','large')) %>%
+  group_by(Species, sepal.length.class) %>%
+  summarize(n=n())%>%
+  mutate(prop=n/sum(n))%>%   # our new proportion variable
+  subset(select=c("Species","sepal.length.class","prop"))%>%   #drop the frequency value
+  spread(sepal.length.class, prop)%>%
+  kable(digits = 2) %>%
+  kable_styling(font_size = 10, latex_options = "hold_position")
+```
+
+## Tables of model estimates {-}
+
+Often we also need to report the results of fitting a model to our data. For instance if we modeled the sepal length on the different species in the `iris` data by:
+
+$$\widehat{\mbox{Sepal.Length}}(x) = \widehat{\alpha} + \widehat{\beta}_{\mbox{versicolor}} \cdot \mathbb{I}_{\mbox{versicolor}}(x) + \widehat{\beta}_{\mbox{virginica}} \cdot \mathbb{I}_{\mbox{virginica}}(x)$$
+
+Then we could report the estimated values of $\widehat{\alpha}$, $\widehat{\beta}_{\mbox{versicolor}}$ and $\widehat{\beta}_{\mbox{virginica}}$ by constructing the following table:
+
+````
+```{r fittedmodel}`r ''`
+model <- lm(Sepal.Length ~ Species, data = iris)
+get_regression_table(model) %>%
+  dplyr::select(term,estimate) %>%  
+  #Note that it seems necessary to include "dplyr::" here!!
+  kable(caption = '\\label{tab:reg} Estimates of the parameters from the fitted linear regression model.') %>%
+  kable_styling(latex_options = 'HOLD_position')
+```
+````
+
+```{r fittedmodel}
+model <- lm(Sepal.Length ~ Species, data = iris)
+get_regression_table(model) %>%
+  dplyr::select(term,estimate) %>%  #Note that it seems necessary to include dplyr:: here!!
+  kable(caption = '\\label{tab:reg} Estimates of the parameters from the fitted 
+        linear regression model.') %>%
+  kable_styling(latex_options = 'HOLD_position')
+```
+
+## Tables 'by hand' {-}
+
+Tables can also be produced "by hand"" in Markdown. For example, the table above corresponding to the first 5 rows of the `iris` data can be produced by hand by typing the following text (without any other text) into a `.Rmd` file:
+
+```
+Sepal Length   | Sepal Width   | Petal Length   | Petal Width   | Species
+:-------------:|:-------------:|:--------------:|:-------------:|---------:
+ 5.1           | 3.5           | 1.4            | 0.2           | setosa
+ 4.9           | 3.0           | 1.4            | 0.2           | setosa
+ 4.7           | 3.2           | 1.3            | 0.2           | setosa
+ 4.6           | 3.1           | 1.5            | 0.2           | setosa
+ 5.0           | 3.6           | 1.4            | 0.2           | setosa
+
+Table: The first 5 rows of the iris data.
+```
+
+This produces the following table:
+
+Sepal Length   | Sepal Width   | Petal Length   | Petal Width   | Species
+:-------------:|:-------------:|:--------------:|:-------------:|---------:
+ 5.1           | 3.5           | 1.4            | 0.2           | setosa
+ 4.9           | 3.0           | 1.4            | 0.2           | setosa
+ 4.7           | 3.2           | 1.3            | 0.2           | setosa
+ 4.6           | 3.1           | 1.5            | 0.2           | setosa
+ 5.0           | 3.6           | 1.4            | 0.2           | setosa
+
+Table: The first 5 rows of the iris data.
+
+The vertical separators `|` are used between columns, while `---` is placed below table/column headings. Alignment of the columns is done using colons, that is, for left alignment put `:---`, for right alignment put `---:`, and for centred alignment put `:---:`.
+
+Tables created by hand can be labelled and referenced to in a similar way to other tables. Having the caption as `Table: \label{tab:iris_by_hand}The first 5 rows of the iris data.` will automatically label the above table. This can easily be referenced to within the text using ``\ref{tab:iris_by_hand}``.
+
+***
+
+**Further information**: Additional details on creating tables by hand can be found [here](http://fletcher.github.io/MultiMarkdown-5/tables.html).
+
+<br>
+<br>
+

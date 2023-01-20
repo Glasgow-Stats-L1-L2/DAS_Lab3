@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Code chunks | Data Analysis: R Markdown</title>
+  <meta name="description" content="Code chunks | Data Analysis: R Markdown" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Code chunks | Data Analysis: R Markdown" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Code chunks | Data Analysis: R Markdown" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="sections.html"/>
+<link rel="next" href="tables-of-data.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="include/webex.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="creating-a-new-r-markdown-document-from-scratch.html"><a href="creating-a-new-r-markdown-document-from-scratch.html"><i class="fa fa-check"></i>Creating a new R Markdown document from scratch</a></li>
+<li class="chapter" data-level="" data-path="title.html"><a href="title.html"><i class="fa fa-check"></i>Title</a></li>
+<li class="chapter" data-level="" data-path="sections.html"><a href="sections.html"><i class="fa fa-check"></i>Sections</a>
+<ul>
+<li class="chapter" data-level="" data-path="sections.html"><a href="sections.html#subsections"><i class="fa fa-check"></i>Subsections</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="code-chunks.html"><a href="code-chunks.html"><i class="fa fa-check"></i>Code chunks</a>
+<ul>
+<li class="chapter" data-level="" data-path="code-chunks.html"><a href="code-chunks.html#inline-code"><i class="fa fa-check"></i>Inline code</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="tables-of-data.html"><a href="tables-of-data.html"><i class="fa fa-check"></i>Tables of data</a>
+<ul>
+<li class="chapter" data-level="" data-path="tables-of-data.html"><a href="tables-of-data.html#tables-of-summaries"><i class="fa fa-check"></i>Tables of summaries</a></li>
+<li class="chapter" data-level="" data-path="tables-of-data.html"><a href="tables-of-data.html#contingency-tables"><i class="fa fa-check"></i>Contingency Tables</a></li>
+<li class="chapter" data-level="" data-path="tables-of-data.html"><a href="tables-of-data.html#tables-of-model-estimates"><i class="fa fa-check"></i>Tables of model estimates</a></li>
+<li class="chapter" data-level="" data-path="tables-of-data.html"><a href="tables-of-data.html#tables-by-hand"><i class="fa fa-check"></i>Tables 'by hand'</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="figures.html"><a href="figures.html"><i class="fa fa-check"></i>Figures</a></li>
+<li class="chapter" data-level="" data-path="mathematics.html"><a href="mathematics.html"><i class="fa fa-check"></i>Mathematics</a></li>
+<li class="chapter" data-level="" data-path="further-task.html"><a href="further-task.html"><i class="fa fa-check"></i>Further Task</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Analysis: R Markdown</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="code-chunks" class="section level1 unnumbered hasAnchor">
+<h1>Code chunks<a href="code-chunks.html#code-chunks" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Code "chunks" allow for R code to be embedded within a document. Not only can the code be easily included within a document, the code can also be evaluated. Hence, you can produce an entire report based on an analysis that is contained within a single file instead of having separate files containing your R code, plot images and comments.</p>
+<p>Using R code within an R Markdown document is done within the following environment:</p>
+<pre><code>```{r label, echo=FALSE, eval=TRUE, warning=FALSE, message=FALSE}
+
+```</code></pre>
+<p>where each code chunk is given its own <code>label</code>. The additional arguments are:</p>
+<ul>
+<li><strong>echo</strong>: include the R code within the code chunk in the document (TRUE/FALSE, default=TRUE);</li>
+<li><strong>eval</strong>: evaluate the R code within the code chunk (TRUE/FALSE, default=TRUE);</li>
+<li><strong>warning</strong>: suppress warnings from R (TRUE/FALSE, default=TRUE); and</li>
+<li><strong>message</strong>: suppress messages from R (TRUE/FALSE, default=TRUE).</li>
+</ul>
+<p>Often the first use of a code chunk in a R Markdown file is to load packages so that functions and datasets are available for analysis. For example, the following code chunk will load these packages:</p>
+<ul>
+<li><code>ggplot2</code> - to access the <code>tidyverse</code> visualization functions</li>
+<li><code>dplyr</code> - to access the <code>tidyverse</code> data manipulation functions</li>
+<li><code>skimr</code> - to access the <code>tidyverse</code> data summary functions</li>
+<li><code>moderndive</code> - to access data on student feedback contained in <code>evals</code></li>
+<li><code>datasets</code> - to access the <code>iris</code> data frame</li>
+</ul>
+<pre><code>```{r loadpackages, echo=FALSE, eval=TRUE, warning=FALSE, message=FALSE}
+library(ggplot2)
+library(dplyr)
+library(moderndive)
+library(gapminder)
+library(skimr)
+library(mvtnorm)
+library(gridExtra)
+library(kableExtra)
+library(tidyr)
+```</code></pre>
+<p>Then, let's say we wanted to select the <code>score</code> and <code>bty_avg</code> variables from the <code>evals</code> data set to be used later, we can do that using the following code chunk:</p>
+<pre><code>```{r evals, echo = FALSE, eval = TRUE, warning = FALSE}
+evals.scores &lt;- evals %&gt;%
+  select(score, bty_avg)
+```</code></pre>
+<p>This will evaluate the R code and store the subsetted data set as the object <code>evals.scores</code> so that it can be used later. If you want to embed the code within the Markdown document then you would simply set <code>echo = TRUE</code> and it will include the R code as follows:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="code-chunks.html#cb8-1" aria-hidden="true" tabindex="-1"></a>evals.scores <span class="ot">&lt;-</span> evals <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="code-chunks.html#cb8-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(score, bty_avg)</span></code></pre></div>
+<p><strong>Note:</strong> It is usually optional whether the package is specified in front of the function, as in <code>dplyr::select</code> here (compare to the previous code chunk above were <code>select</code> appears without the package name preceding it - both chunks of code do exactly the same thing), but if you have problems running a particular function, try including the <code>package name</code> and <code>::</code> before the function. Also, you can always check what functions or datasets are in a particular package using <code>help(package="packagename")</code> or refer to the cheat sheets.</p>
+<p>Additional arguments can be passed to code chunks other than those displayed above. The most useful ones other than those relate to figure sizing and positioning and are discussed in the <strong>Figures</strong> section later.</p>
+<p><br></p>
+<p><strong>Task</strong>
+Create some code chunks in your document by copying and modifying the above code into <code>Week3DA.Rmd</code>. <code>Knit</code> the <code>.Rmd</code> file and notice what is produced in the <code>Week3DA.pdf</code> file.</p>
+<div id="inline-code" class="section level2 unnumbered hasAnchor">
+<h2>Inline code<a href="code-chunks.html#inline-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R code can be included within text by enclosing the code with <code>`r `</code>. This allows for expressions to be evaluated by R and not be hardwired by the user. For example, if you wanted to convey the number of observations within <code>evals.scores</code> then we can enclose <code>nrow(evals.scores)</code> within <code>`r `</code> to obtain the number of observations, rather than hard wiring "463" into the text. This can help to prevent potential human error when presenting information. It can also help with consistency and ease-of-use, since the number of observations could be stored as an R object, e.g. using <code>`r n &lt;- nrow(evals.scores)`</code>, and referred to whenever necessary within the text using <code>`r n`</code>.</p>
+<hr />
+<p><strong>Further information</strong>: Additional details on all of the code chunk options can be found <a href="https://rmarkdown.rstudio.com/lesson-3.html">here</a> and <a href="http://yihui.name/knitr/options/?version=1.1.383&amp;mode=desktop">here</a>.</p>
+<p><br>
+<br></p>
+
+</div>
+</div>
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="sections.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tables-of-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["main.pdf", "main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"info": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

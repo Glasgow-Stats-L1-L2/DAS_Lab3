@@ -1,0 +1,24 @@
+# Title {-}
+
+The title of the document can be found at the top of the `.Rmd` file within its preamble, which is shown below. When titling your document, ensure the title is within inverted commas. 
+
+```
+---
+title: "Example Report"
+author: "Annon."
+output:
+  pdf_document:
+          latex_engine: pdflatex
+          number_sections: yes
+fig_caption: yes
+---
+```
+
+<br>
+
+**Task**
+Give your document a suitable title and your name by copying and modifying the above code into `Week3DA.Rmd`. `Knit` the `.Rmd` file and notice what is produced in the `Week3DA.pdf` file.
+
+<br>
+<br>
+

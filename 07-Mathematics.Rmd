@@ -1,0 +1,35 @@
+# Mathematics {-}
+
+Mathematics and statistical equations can be presented nicely within an R Markdown document using LaTeX notation. For example, the following equation referring to a linear regression model:
+
+$$y_i = \alpha + \beta x_i + \epsilon_i, ~~~~ \epsilon_i \sim N(0, \sigma^2),$$
+
+is produced using the following code:
+
+```
+$$y_i = \alpha + \beta x_i + \epsilon_i, ~~~~ \epsilon_i \sim N(0, \sigma^2),$$
+```
+
+That is, we use:
+
+  * `$$` signs to produce mathematics which is centred on a new line, and a single `$` to include mathematics within a sentence or paragraph;
+  * `_` and `^` are used for subscripts and superscripts, respectively;
+  * Greek letters are obtained using `\` and the letters name, i.e.\ `\alpha` gives $\alpha$; and
+  * tildes (`~`) are used to put spacing between notation.
+
+For additional tricks inserting mathematics into documents see the Example Report Markdown file `ExampleReport.Rmd`.
+
+<br>
+
+**Task**
+Include an equation describing the relationship between the teaching score and the age of the professors in your document by copying and modifying the above code into `Week3DA.Rmd`.  `Knit` the `.Rmd` file and notice what is produced in the `Week3DA.pdf` file.
+
+<br>
+
+***
+
+**Further information**: Additional details on including mathematics into Markdown documents can be found [here](https://www.calvin.edu/~rpruim/courses/s341/S17/from-class/MathinRmd.html) and [here](https://gist.github.com/derekmcloughlin/896da22518ef2f3d81b0).
+
+<br>
+<br>
+

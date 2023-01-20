@@ -40,7 +40,7 @@ See also the Example Report Markdown file for an example of using the `kable_sty
 
 Often we need to report summary statistics of continuous variables either overall or for different subsets using categorical variables. 
 
-We can do this 'manually' for an individual variable like this:
+We can produce overall summaries 'manually' for an individual variable like this:
 
 ```{r summaries, warning=FALSE}
 iris %>%
@@ -54,7 +54,7 @@ iris %>%
   kable_styling(font_size = 10, latex_options = "hold_position")
 ```
 
-Alternatively, we can use the `skim()` function in the `skimr` package, to produce summaries of each varialbe like this:
+Alternatively, we can use the `skim_with()` function in the `skimr` package, to produce summaries of each varialbe like this:
 
 
 ```{r summariesskim, warning=FALSE}
@@ -63,7 +63,7 @@ my_skim(iris) %>%
   transmute(Variable=skim_variable, Mean=numeric.mean, SD=numeric.sd,
             Min=numeric.p0, Median=numeric.p50,  Max=numeric.p100,
             IQR = numeric.p75-numeric.p50) %>%
-  kable(caption = '\\label{tab:summaries} Summary statistics 
+  kable(caption = '\\label{tab:summariesskim} Summary statistics 
         on the sepal length of irises.') %>%
   kable_styling(font_size = 10, latex_options = "hold_position")
 ```

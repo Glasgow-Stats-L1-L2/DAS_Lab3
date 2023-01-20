@@ -1,4 +1,6 @@
 tab:summaries
 tab:summariesskim
+tab:summariesby
+tab:summariesbyskim
 tab:fittedmodel
 fig:scatplot

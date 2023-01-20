@@ -194,20 +194,250 @@ kable(head(iris, n = 5), caption = &#39;\\label{tab:iris} The first 5 rows of th
 <p><strong>Further information</strong>: Additional details on using <code>kable</code> to produce tables can be found <a href="https://bookdown.org/yihui/rmarkdown/r-code.html#tables">here</a> and <a href="https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html#overview">here</a>.</p>
 <div id="tables-of-summaries" class="section level2 unnumbered hasAnchor">
 <h2>Tables of summaries<a href="tables-of-data.html#tables-of-summaries" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Often we need to report summary statistics for different subsets in a set of data. For instance we can construct a table of summaries for the sepal length of the different species in the <code>iris</code> data using:</p>
+<p>Often we need to report summary statistics of continuous variables either overall or for different subsets using categorical variables.</p>
+<p>We can do this 'manually' for an individual variable like this:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="tables-of-data.html#cb12-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
-<span id="cb12-2"><a href="tables-of-data.html#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
-<span id="cb12-3"><a href="tables-of-data.html#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">n</span>(),<span class="at">Mean=</span><span class="fu">round</span>(<span class="fu">mean</span>(Sepal.Length),<span class="at">digits=</span><span class="dv">1</span>),</span>
-<span id="cb12-4"><a href="tables-of-data.html#cb12-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">St.Dev=</span><span class="fu">round</span>(<span class="fu">sd</span>(Sepal.Length),<span class="at">digits=</span><span class="dv">1</span>),</span>
-<span id="cb12-5"><a href="tables-of-data.html#cb12-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">Min=</span><span class="fu">min</span>(Sepal.Length), <span class="at">Q1 =</span> <span class="fu">quantile</span>(Sepal.Length,<span class="fl">0.25</span>),</span>
-<span id="cb12-6"><a href="tables-of-data.html#cb12-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">Median=</span><span class="fu">median</span>(Sepal.Length), </span>
-<span id="cb12-7"><a href="tables-of-data.html#cb12-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">Q3 =</span> <span class="fu">quantile</span>(Sepal.Length,<span class="fl">0.75</span>), <span class="at">Max=</span><span class="fu">max</span>(Sepal.Length)) <span class="sc">%&gt;%</span></span>
-<span id="cb12-8"><a href="tables-of-data.html#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&#39;</span><span class="sc">\\</span><span class="st">label{tab:summaries} Summary statistics </span></span>
-<span id="cb12-9"><a href="tables-of-data.html#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="st">        on the sepal length by species of irises.&#39;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-10"><a href="tables-of-data.html#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="dv">10</span>, <span class="at">latex_options =</span> <span class="st">&quot;hold_position&quot;</span>)</span></code></pre></div>
+<span id="cb12-2"><a href="tables-of-data.html#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">n</span>(),<span class="at">Mean=</span><span class="fu">round</span>(<span class="fu">mean</span>(Sepal.Length),<span class="at">digits=</span><span class="dv">1</span>),</span>
+<span id="cb12-3"><a href="tables-of-data.html#cb12-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">St.Dev=</span><span class="fu">round</span>(<span class="fu">sd</span>(Sepal.Length),<span class="at">digits=</span><span class="dv">1</span>),</span>
+<span id="cb12-4"><a href="tables-of-data.html#cb12-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">Min=</span><span class="fu">min</span>(Sepal.Length), <span class="at">Q1 =</span> <span class="fu">quantile</span>(Sepal.Length,<span class="fl">0.25</span>),</span>
+<span id="cb12-5"><a href="tables-of-data.html#cb12-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">Median=</span><span class="fu">median</span>(Sepal.Length), </span>
+<span id="cb12-6"><a href="tables-of-data.html#cb12-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">Q3 =</span> <span class="fu">quantile</span>(Sepal.Length,<span class="fl">0.75</span>), <span class="at">Max=</span><span class="fu">max</span>(Sepal.Length)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-7"><a href="tables-of-data.html#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&#39;</span><span class="sc">\\</span><span class="st">label{tab:summaries} Summary statistics </span></span>
+<span id="cb12-8"><a href="tables-of-data.html#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="st">        on the sepal length of irises.&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-9"><a href="tables-of-data.html#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="dv">10</span>, <span class="at">latex_options =</span> <span class="st">&quot;hold_position&quot;</span>)</span></code></pre></div>
 <table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:summaries">Table 1: </span> Summary statistics
+on the sepal length of irises.
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+n
+</th>
+<th style="text-align:right;">
+Mean
+</th>
+<th style="text-align:right;">
+St.Dev
+</th>
+<th style="text-align:right;">
+Min
+</th>
+<th style="text-align:right;">
+Q1
+</th>
+<th style="text-align:right;">
+Median
+</th>
+<th style="text-align:right;">
+Q3
+</th>
+<th style="text-align:right;">
+Max
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:right;">
+5.8
+</td>
+<td style="text-align:right;">
+0.8
+</td>
+<td style="text-align:right;">
+4.3
+</td>
+<td style="text-align:right;">
+5.1
+</td>
+<td style="text-align:right;">
+5.8
+</td>
+<td style="text-align:right;">
+6.4
+</td>
+<td style="text-align:right;">
+7.9
+</td>
+</tr>
+</tbody>
+</table>
+<p>Alternatively, we can use the <code>skim()</code> function in the <code>skimr</code> package, to produce summaries of each varialbe like this:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="tables-of-data.html#cb13-1" aria-hidden="true" tabindex="-1"></a>my_skim <span class="ot">&lt;-</span> <span class="fu">skim_with</span>(<span class="at">numeric =</span> <span class="fu">sfl</span>(<span class="at">hist =</span> <span class="cn">NULL</span>))</span>
+<span id="cb13-2"><a href="tables-of-data.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">my_skim</span>(iris) <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="tables-of-data.html#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(<span class="at">Variable=</span>skim_variable, <span class="at">Mean=</span>numeric.mean, <span class="at">SD=</span>numeric.sd,</span>
+<span id="cb13-4"><a href="tables-of-data.html#cb13-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">Min=</span>numeric.p0, <span class="at">Median=</span>numeric.p50,  <span class="at">Max=</span>numeric.p100,</span>
+<span id="cb13-5"><a href="tables-of-data.html#cb13-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">IQR =</span> numeric.p75<span class="sc">-</span>numeric.p50) <span class="sc">%&gt;%</span></span>
+<span id="cb13-6"><a href="tables-of-data.html#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&#39;</span><span class="sc">\\</span><span class="st">label{tab:summaries} Summary statistics </span></span>
+<span id="cb13-7"><a href="tables-of-data.html#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="st">        on the sepal length of irises.&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-8"><a href="tables-of-data.html#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="dv">10</span>, <span class="at">latex_options =</span> <span class="st">&quot;hold_position&quot;</span>)</span></code></pre></div>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:summariesskim">Table 2: </span> Summary statistics
+on the sepal length of irises.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:right;">
+Mean
+</th>
+<th style="text-align:right;">
+SD
+</th>
+<th style="text-align:right;">
+Min
+</th>
+<th style="text-align:right;">
+Median
+</th>
+<th style="text-align:right;">
+Max
+</th>
+<th style="text-align:right;">
+IQR
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Species
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sepal.Length
+</td>
+<td style="text-align:right;">
+5.843333
+</td>
+<td style="text-align:right;">
+0.8280661
+</td>
+<td style="text-align:right;">
+4.3
+</td>
+<td style="text-align:right;">
+5.80
+</td>
+<td style="text-align:right;">
+7.9
+</td>
+<td style="text-align:right;">
+0.60
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sepal.Width
+</td>
+<td style="text-align:right;">
+3.057333
+</td>
+<td style="text-align:right;">
+0.4358663
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+<td style="text-align:right;">
+3.00
+</td>
+<td style="text-align:right;">
+4.4
+</td>
+<td style="text-align:right;">
+0.30
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Petal.Length
+</td>
+<td style="text-align:right;">
+3.758000
+</td>
+<td style="text-align:right;">
+1.7652982
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+<td style="text-align:right;">
+4.35
+</td>
+<td style="text-align:right;">
+6.9
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Petal.Width
+</td>
+<td style="text-align:right;">
+1.199333
+</td>
+<td style="text-align:right;">
+0.7622377
+</td>
+<td style="text-align:right;">
+0.1
+</td>
+<td style="text-align:right;">
+1.30
+</td>
+<td style="text-align:right;">
+2.5
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+</tr>
+</tbody>
+</table>
+<p>We can construct a table of summaries for the sepal length of the different species in the <code>iris</code> data introducing <code>group_by(()</code>:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="tables-of-data.html#cb14-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="tables-of-data.html#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a href="tables-of-data.html#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">n</span>(),<span class="at">Mean=</span><span class="fu">round</span>(<span class="fu">mean</span>(Sepal.Length),<span class="at">digits=</span><span class="dv">1</span>),</span>
+<span id="cb14-4"><a href="tables-of-data.html#cb14-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">St.Dev=</span><span class="fu">round</span>(<span class="fu">sd</span>(Sepal.Length),<span class="at">digits=</span><span class="dv">1</span>),</span>
+<span id="cb14-5"><a href="tables-of-data.html#cb14-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">Min=</span><span class="fu">min</span>(Sepal.Length), <span class="at">Q1 =</span> <span class="fu">quantile</span>(Sepal.Length,<span class="fl">0.25</span>),</span>
+<span id="cb14-6"><a href="tables-of-data.html#cb14-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">Median=</span><span class="fu">median</span>(Sepal.Length), </span>
+<span id="cb14-7"><a href="tables-of-data.html#cb14-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">Q3 =</span> <span class="fu">quantile</span>(Sepal.Length,<span class="fl">0.75</span>), <span class="at">Max=</span><span class="fu">max</span>(Sepal.Length)) <span class="sc">%&gt;%</span></span>
+<span id="cb14-8"><a href="tables-of-data.html#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&#39;</span><span class="sc">\\</span><span class="st">label{tab:summariesby} Summary statistics </span></span>
+<span id="cb14-9"><a href="tables-of-data.html#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="st">        on the sepal length by species of irises.&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb14-10"><a href="tables-of-data.html#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="dv">10</span>, <span class="at">latex_options =</span> <span class="st">&quot;hold_position&quot;</span>)</span></code></pre></div>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:summariesby">Table 3: </span> Summary statistics
 on the sepal length by species of irises.
 </caption>
 <thead>
@@ -331,22 +561,22 @@ virginica
 </tr>
 </tbody>
 </table>
-<p>Alternatively, we can use the <code>skim()</code> function in the <code>skimr</code> package, as follows:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="tables-of-data.html#cb13-1" aria-hidden="true" tabindex="-1"></a>my_skim <span class="ot">&lt;-</span> <span class="fu">skim_with</span>(<span class="at">base =</span> <span class="fu">sfl</span>(<span class="at">n =</span> length))</span>
-<span id="cb13-2"><a href="tables-of-data.html#cb13-2" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
-<span id="cb13-3"><a href="tables-of-data.html#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
-<span id="cb13-4"><a href="tables-of-data.html#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Sepal.Length,Species) <span class="sc">%&gt;%</span></span>
-<span id="cb13-5"><a href="tables-of-data.html#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">my_skim</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb13-6"><a href="tables-of-data.html#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(<span class="at">Variable=</span>skim_variable, <span class="at">Species=</span>Species, <span class="at">n=</span>n, <span class="at">Mean=</span>numeric.mean, <span class="at">SD=</span>numeric.sd,</span>
-<span id="cb13-7"><a href="tables-of-data.html#cb13-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">Min=</span>numeric.p0, <span class="at">Median=</span>numeric.p50,  <span class="at">Max=</span>numeric.p100, </span>
-<span id="cb13-8"><a href="tables-of-data.html#cb13-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">IQR =</span> numeric.p75<span class="sc">-</span>numeric.p50) <span class="sc">%&gt;%</span></span>
-<span id="cb13-9"><a href="tables-of-data.html#cb13-9" aria-hidden="true" tabindex="-1"></a>   <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&#39;</span><span class="sc">\\</span><span class="st">label{tab:summaryskim} Summary statistics of the sepal length </span></span>
-<span id="cb13-10"><a href="tables-of-data.html#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="st">         by species of irises (produced using skim() function).&#39;</span>,</span>
-<span id="cb13-11"><a href="tables-of-data.html#cb13-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">linesep =</span> <span class="st">&quot;&quot;</span>, <span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb13-12"><a href="tables-of-data.html#cb13-12" aria-hidden="true" tabindex="-1"></a>   <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="dv">10</span>, <span class="at">latex_options =</span> <span class="st">&quot;hold_position&quot;</span>)</span></code></pre></div>
+<p>Alternatively, we can use the <code>skim()</code> function:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="tables-of-data.html#cb15-1" aria-hidden="true" tabindex="-1"></a>my_skim <span class="ot">&lt;-</span> <span class="fu">skim_with</span>(<span class="at">base =</span> <span class="fu">sfl</span>(<span class="at">n =</span> length))</span>
+<span id="cb15-2"><a href="tables-of-data.html#cb15-2" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a href="tables-of-data.html#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
+<span id="cb15-4"><a href="tables-of-data.html#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Sepal.Length,Species) <span class="sc">%&gt;%</span></span>
+<span id="cb15-5"><a href="tables-of-data.html#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">my_skim</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb15-6"><a href="tables-of-data.html#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(<span class="at">Variable=</span>skim_variable, <span class="at">Species=</span>Species, <span class="at">n=</span>n, <span class="at">Mean=</span>numeric.mean, <span class="at">SD=</span>numeric.sd,</span>
+<span id="cb15-7"><a href="tables-of-data.html#cb15-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">Min=</span>numeric.p0, <span class="at">Median=</span>numeric.p50,  <span class="at">Max=</span>numeric.p100, </span>
+<span id="cb15-8"><a href="tables-of-data.html#cb15-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">IQR =</span> numeric.p75<span class="sc">-</span>numeric.p50) <span class="sc">%&gt;%</span></span>
+<span id="cb15-9"><a href="tables-of-data.html#cb15-9" aria-hidden="true" tabindex="-1"></a>   <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&#39;</span><span class="sc">\\</span><span class="st">label{tab:summarybyskim} Summary statistics of the sepal length </span></span>
+<span id="cb15-10"><a href="tables-of-data.html#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="st">         by species of irises (produced using skim() function).&#39;</span>,</span>
+<span id="cb15-11"><a href="tables-of-data.html#cb15-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">linesep =</span> <span class="st">&quot;&quot;</span>, <span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb15-12"><a href="tables-of-data.html#cb15-12" aria-hidden="true" tabindex="-1"></a>   <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="dv">10</span>, <span class="at">latex_options =</span> <span class="st">&quot;hold_position&quot;</span>)</span></code></pre></div>
 <table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:summariesskim">Table 2: </span> Summary statistics of the sepal length
+<span id="tab:summariesbyskim">Table 4: </span> Summary statistics of the sepal length
 by species of irises (produced using skim() function).
 </caption>
 <thead>
@@ -478,13 +708,13 @@ Include a table of summaries of <code>Petal.Width</code> for the different iris 
 <div id="contingency-tables" class="section level2 unnumbered hasAnchor">
 <h2>Contingency Tables<a href="tables-of-data.html#contingency-tables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Often we need to report summary statistics for different combinations of categorical variables' values. For instance, we can classify each iris as having a large or small sepal length and then construct a contingency table of the counts or large and small sepal lengths by the different species in the <code>iris</code> data using:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="tables-of-data.html#cb14-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
-<span id="cb14-2"><a href="tables-of-data.html#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sepal.length.class =</span> <span class="fu">if_else</span>(Sepal.Length<span class="sc">&lt;</span><span class="fl">5.5</span>,<span class="st">&#39;small&#39;</span>,<span class="st">&#39;large&#39;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb14-3"><a href="tables-of-data.html#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species, sepal.length.class) <span class="sc">%&gt;%</span></span>
-<span id="cb14-4"><a href="tables-of-data.html#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb14-5"><a href="tables-of-data.html#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spread</span>(sepal.length.class, n) <span class="sc">%&gt;%</span></span>
-<span id="cb14-6"><a href="tables-of-data.html#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb14-7"><a href="tables-of-data.html#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="dv">10</span>, <span class="at">latex_options =</span> <span class="st">&quot;hold_position&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="tables-of-data.html#cb16-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a href="tables-of-data.html#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sepal.length.class =</span> <span class="fu">if_else</span>(Sepal.Length<span class="sc">&lt;</span><span class="fl">5.5</span>,<span class="st">&#39;small&#39;</span>,<span class="st">&#39;large&#39;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-3"><a href="tables-of-data.html#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species, sepal.length.class) <span class="sc">%&gt;%</span></span>
+<span id="cb16-4"><a href="tables-of-data.html#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb16-5"><a href="tables-of-data.html#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spread</span>(sepal.length.class, n) <span class="sc">%&gt;%</span></span>
+<span id="cb16-6"><a href="tables-of-data.html#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb16-7"><a href="tables-of-data.html#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="dv">10</span>, <span class="at">latex_options =</span> <span class="st">&quot;hold_position&quot;</span>)</span></code></pre></div>
 <table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -538,13 +768,13 @@ virginica
 <p>We achieve this by including the <code>spread()</code> function, to create columns for each sepal length class, with the count <code>n</code> as the crosstab response value.</p>
 <p>One advantage of dplyr is that we can determine what kind of summary statistic we want to see very easily by adjusting our <code>summarize()</code> input.</p>
 <p>Here instead of displaying frequencies, we can get the average petal length by species &amp; sepal length class:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="tables-of-data.html#cb15-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
-<span id="cb15-2"><a href="tables-of-data.html#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sepal.length.class =</span> <span class="fu">if_else</span>(Sepal.Length<span class="sc">&lt;</span><span class="fl">5.5</span>,<span class="st">&#39;small&#39;</span>,<span class="st">&#39;large&#39;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb15-3"><a href="tables-of-data.html#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species, sepal.length.class) <span class="sc">%&gt;%</span></span>
-<span id="cb15-4"><a href="tables-of-data.html#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_petal.length=</span><span class="fu">mean</span>(Petal.Length))<span class="sc">%&gt;%</span></span>
-<span id="cb15-5"><a href="tables-of-data.html#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spread</span>(sepal.length.class, mean_petal.length)<span class="sc">%&gt;%</span></span>
-<span id="cb15-6"><a href="tables-of-data.html#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb15-7"><a href="tables-of-data.html#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="dv">10</span>, <span class="at">latex_options =</span> <span class="st">&quot;hold_position&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="tables-of-data.html#cb17-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="tables-of-data.html#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sepal.length.class =</span> <span class="fu">if_else</span>(Sepal.Length<span class="sc">&lt;</span><span class="fl">5.5</span>,<span class="st">&#39;small&#39;</span>,<span class="st">&#39;large&#39;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb17-3"><a href="tables-of-data.html#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species, sepal.length.class) <span class="sc">%&gt;%</span></span>
+<span id="cb17-4"><a href="tables-of-data.html#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_petal.length=</span><span class="fu">mean</span>(Petal.Length))<span class="sc">%&gt;%</span></span>
+<span id="cb17-5"><a href="tables-of-data.html#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spread</span>(sepal.length.class, mean_petal.length)<span class="sc">%&gt;%</span></span>
+<span id="cb17-6"><a href="tables-of-data.html#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-7"><a href="tables-of-data.html#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="dv">10</span>, <span class="at">latex_options =</span> <span class="st">&quot;hold_position&quot;</span>)</span></code></pre></div>
 <table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -596,13 +826,13 @@ virginica
 </tbody>
 </table>
 <p>Lastly, we can find proportions by creating a new, calculated variable dividing row frequency by table frequency.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="tables-of-data.html#cb16-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
-<span id="cb16-2"><a href="tables-of-data.html#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sepal.length.class =</span> <span class="fu">if_else</span>(Sepal.Length<span class="sc">&lt;</span><span class="fl">5.5</span>,<span class="st">&#39;small&#39;</span>,<span class="st">&#39;large&#39;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb16-3"><a href="tables-of-data.html#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species, sepal.length.class) <span class="sc">%&gt;%</span></span>
-<span id="cb16-4"><a href="tables-of-data.html#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>())<span class="sc">%&gt;%</span></span>
-<span id="cb16-5"><a href="tables-of-data.html#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop=</span>n<span class="sc">/</span><span class="fu">sum</span>(n))<span class="sc">%&gt;%</span>   <span class="co"># our new proportion variable</span></span>
-<span id="cb16-6"><a href="tables-of-data.html#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb16-7"><a href="tables-of-data.html#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="dv">10</span>, <span class="at">latex_options =</span> <span class="st">&quot;hold_position&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="tables-of-data.html#cb18-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb18-2"><a href="tables-of-data.html#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sepal.length.class =</span> <span class="fu">if_else</span>(Sepal.Length<span class="sc">&lt;</span><span class="fl">5.5</span>,<span class="st">&#39;small&#39;</span>,<span class="st">&#39;large&#39;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb18-3"><a href="tables-of-data.html#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species, sepal.length.class) <span class="sc">%&gt;%</span></span>
+<span id="cb18-4"><a href="tables-of-data.html#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>())<span class="sc">%&gt;%</span></span>
+<span id="cb18-5"><a href="tables-of-data.html#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop=</span>n<span class="sc">/</span><span class="fu">sum</span>(n))<span class="sc">%&gt;%</span>   <span class="co"># our new proportion variable</span></span>
+<span id="cb18-6"><a href="tables-of-data.html#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb18-7"><a href="tables-of-data.html#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="dv">10</span>, <span class="at">latex_options =</span> <span class="st">&quot;hold_position&quot;</span>)</span></code></pre></div>
 <table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -708,15 +938,15 @@ small
 </tbody>
 </table>
 <p>And we can create a contingency table of proportion values by applying the same spread command as before. Vary the <code>group_by()</code> and <code>spread()</code> arguments to produce proportions of different variables.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="tables-of-data.html#cb17-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
-<span id="cb17-2"><a href="tables-of-data.html#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sepal.length.class =</span> <span class="fu">if_else</span>(Sepal.Length<span class="sc">&lt;</span><span class="fl">5.5</span>,<span class="st">&#39;small&#39;</span>,<span class="st">&#39;large&#39;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb17-3"><a href="tables-of-data.html#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species, sepal.length.class) <span class="sc">%&gt;%</span></span>
-<span id="cb17-4"><a href="tables-of-data.html#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>())<span class="sc">%&gt;%</span></span>
-<span id="cb17-5"><a href="tables-of-data.html#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop=</span>n<span class="sc">/</span><span class="fu">sum</span>(n))<span class="sc">%&gt;%</span>   <span class="co"># our new proportion variable</span></span>
-<span id="cb17-6"><a href="tables-of-data.html#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(<span class="at">select=</span><span class="fu">c</span>(<span class="st">&quot;Species&quot;</span>,<span class="st">&quot;sepal.length.class&quot;</span>,<span class="st">&quot;prop&quot;</span>))<span class="sc">%&gt;%</span>   <span class="co">#drop the frequency value</span></span>
-<span id="cb17-7"><a href="tables-of-data.html#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spread</span>(sepal.length.class, prop)<span class="sc">%&gt;%</span></span>
-<span id="cb17-8"><a href="tables-of-data.html#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb17-9"><a href="tables-of-data.html#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="dv">10</span>, <span class="at">latex_options =</span> <span class="st">&quot;hold_position&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="tables-of-data.html#cb19-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="tables-of-data.html#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sepal.length.class =</span> <span class="fu">if_else</span>(Sepal.Length<span class="sc">&lt;</span><span class="fl">5.5</span>,<span class="st">&#39;small&#39;</span>,<span class="st">&#39;large&#39;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a href="tables-of-data.html#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species, sepal.length.class) <span class="sc">%&gt;%</span></span>
+<span id="cb19-4"><a href="tables-of-data.html#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>())<span class="sc">%&gt;%</span></span>
+<span id="cb19-5"><a href="tables-of-data.html#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop=</span>n<span class="sc">/</span><span class="fu">sum</span>(n))<span class="sc">%&gt;%</span>   <span class="co"># our new proportion variable</span></span>
+<span id="cb19-6"><a href="tables-of-data.html#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(<span class="at">select=</span><span class="fu">c</span>(<span class="st">&quot;Species&quot;</span>,<span class="st">&quot;sepal.length.class&quot;</span>,<span class="st">&quot;prop&quot;</span>))<span class="sc">%&gt;%</span>   <span class="co">#drop the frequency value</span></span>
+<span id="cb19-7"><a href="tables-of-data.html#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spread</span>(sepal.length.class, prop)<span class="sc">%&gt;%</span></span>
+<span id="cb19-8"><a href="tables-of-data.html#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb19-9"><a href="tables-of-data.html#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="dv">10</span>, <span class="at">latex_options =</span> <span class="st">&quot;hold_position&quot;</span>)</span></code></pre></div>
 <table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -781,15 +1011,15 @@ get_regression_table(model) %&gt;%
   kable(caption = &#39;\\label{tab:reg} Estimates of the parameters from the fitted linear regression model.&#39;) %&gt;%
   kable_styling(latex_options = &#39;HOLD_position&#39;)
 ```</code></pre>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="tables-of-data.html#cb19-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> iris)</span>
-<span id="cb19-2"><a href="tables-of-data.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">get_regression_table</span>(model) <span class="sc">%&gt;%</span></span>
-<span id="cb19-3"><a href="tables-of-data.html#cb19-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(term,estimate) <span class="sc">%&gt;%</span>  <span class="co">#Note that it seems necessary to include dplyr:: here!!</span></span>
-<span id="cb19-4"><a href="tables-of-data.html#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&#39;</span><span class="sc">\\</span><span class="st">label{tab:reg} Estimates of the parameters from the fitted </span></span>
-<span id="cb19-5"><a href="tables-of-data.html#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="st">        linear regression model.&#39;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb19-6"><a href="tables-of-data.html#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">latex_options =</span> <span class="st">&#39;HOLD_position&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="tables-of-data.html#cb21-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> iris)</span>
+<span id="cb21-2"><a href="tables-of-data.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">get_regression_table</span>(model) <span class="sc">%&gt;%</span></span>
+<span id="cb21-3"><a href="tables-of-data.html#cb21-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(term,estimate) <span class="sc">%&gt;%</span>  <span class="co">#Note that it seems necessary to include dplyr:: here!!</span></span>
+<span id="cb21-4"><a href="tables-of-data.html#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&#39;</span><span class="sc">\\</span><span class="st">label{tab:reg} Estimates of the parameters from the fitted </span></span>
+<span id="cb21-5"><a href="tables-of-data.html#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="st">        linear regression model.&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb21-6"><a href="tables-of-data.html#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">latex_options =</span> <span class="st">&#39;HOLD_position&#39;</span>)</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:fittedmodel">Table 3: </span> Estimates of the parameters from the fitted
+<span id="tab:fittedmodel">Table 5: </span> Estimates of the parameters from the fitted
 linear regression model.
 </caption>
 <thead>

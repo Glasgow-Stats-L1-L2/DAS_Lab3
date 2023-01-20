@@ -195,7 +195,7 @@ kable(head(iris, n = 5), caption = &#39;\\label{tab:iris} The first 5 rows of th
 <div id="tables-of-summaries" class="section level2 unnumbered hasAnchor">
 <h2>Tables of summaries<a href="tables-of-data.html#tables-of-summaries" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Often we need to report summary statistics of continuous variables either overall or for different subsets using categorical variables.</p>
-<p>We can do this 'manually' for an individual variable like this:</p>
+<p>We can produce overall summaries 'manually' for an individual variable like this:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="tables-of-data.html#cb12-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
 <span id="cb12-2"><a href="tables-of-data.html#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">n</span>(),<span class="at">Mean=</span><span class="fu">round</span>(<span class="fu">mean</span>(Sepal.Length),<span class="at">digits=</span><span class="dv">1</span>),</span>
 <span id="cb12-3"><a href="tables-of-data.html#cb12-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">St.Dev=</span><span class="fu">round</span>(<span class="fu">sd</span>(Sepal.Length),<span class="at">digits=</span><span class="dv">1</span>),</span>
@@ -267,13 +267,13 @@ Max
 </tr>
 </tbody>
 </table>
-<p>Alternatively, we can use the <code>skim()</code> function in the <code>skimr</code> package, to produce summaries of each varialbe like this:</p>
+<p>Alternatively, we can use the <code>skim_with()</code> function in the <code>skimr</code> package, to produce summaries of each varialbe like this:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="tables-of-data.html#cb13-1" aria-hidden="true" tabindex="-1"></a>my_skim <span class="ot">&lt;-</span> <span class="fu">skim_with</span>(<span class="at">numeric =</span> <span class="fu">sfl</span>(<span class="at">hist =</span> <span class="cn">NULL</span>))</span>
 <span id="cb13-2"><a href="tables-of-data.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">my_skim</span>(iris) <span class="sc">%&gt;%</span></span>
 <span id="cb13-3"><a href="tables-of-data.html#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(<span class="at">Variable=</span>skim_variable, <span class="at">Mean=</span>numeric.mean, <span class="at">SD=</span>numeric.sd,</span>
 <span id="cb13-4"><a href="tables-of-data.html#cb13-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">Min=</span>numeric.p0, <span class="at">Median=</span>numeric.p50,  <span class="at">Max=</span>numeric.p100,</span>
 <span id="cb13-5"><a href="tables-of-data.html#cb13-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">IQR =</span> numeric.p75<span class="sc">-</span>numeric.p50) <span class="sc">%&gt;%</span></span>
-<span id="cb13-6"><a href="tables-of-data.html#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&#39;</span><span class="sc">\\</span><span class="st">label{tab:summaries} Summary statistics </span></span>
+<span id="cb13-6"><a href="tables-of-data.html#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&#39;</span><span class="sc">\\</span><span class="st">label{tab:summariesskim} Summary statistics </span></span>
 <span id="cb13-7"><a href="tables-of-data.html#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="st">        on the sepal length of irises.&#39;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb13-8"><a href="tables-of-data.html#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="dv">10</span>, <span class="at">latex_options =</span> <span class="st">&quot;hold_position&quot;</span>)</span></code></pre></div>
 <table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">

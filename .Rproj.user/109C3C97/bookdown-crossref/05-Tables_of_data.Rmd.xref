@@ -3,7 +3,7 @@ h2:tables-of-summaries Tables of summaries
 tab:summaries \\label{tab:summaries} Summary statistics 
 
         on the sepal length of irises.
-tab:summariesskim \\label{tab:summaries} Summary statistics 
+tab:summariesskim \\label{tab:summariesskim} Summary statistics 
 
         on the sepal length of irises.
 tab:summariesby \\label{tab:summariesby} Summary statistics 

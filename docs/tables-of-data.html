@@ -267,7 +267,7 @@ Max
 </tr>
 </tbody>
 </table>
-<p>Alternatively, we can use the <code>skim_with()</code> function in the <code>skimr</code> package, to produce summaries of each varialbe like this:</p>
+<p>Alternatively, we can use the <code>skim_with()</code> function, in the <code>skimr</code> package, to produce summaries of each varialbe like this:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="tables-of-data.html#cb13-1" aria-hidden="true" tabindex="-1"></a>my_skim <span class="ot">&lt;-</span> <span class="fu">skim_with</span>(<span class="at">numeric =</span> <span class="fu">sfl</span>(<span class="at">hist =</span> <span class="cn">NULL</span>))</span>
 <span id="cb13-2"><a href="tables-of-data.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">my_skim</span>(iris) <span class="sc">%&gt;%</span></span>
 <span id="cb13-3"><a href="tables-of-data.html#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(<span class="at">Variable=</span>skim_variable, <span class="at">Mean=</span>numeric.mean, <span class="at">SD=</span>numeric.sd,</span>
@@ -424,6 +424,14 @@ Petal.Width
 </tr>
 </tbody>
 </table>
+<hr />
+<p><strong>Further information</strong>: Additional details on using the <code>skimr</code> package to produce summaries of variables can be found, in increasing detail, via these links:</p>
+<ul>
+<li><a href="https://rpubs.com/jsherwood/632878">Code Through - skimr</a>,</li>
+<li><a href="https://bookdown.org/f_lennert/introduction-to-r/descriptives.html">Describing data sets</a> and</li>
+<li><a href="https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html">Using skimr (vignettes)</a>.</li>
+</ul>
+<hr />
 <p>We can construct a table of summaries for the sepal length of the different species in the <code>iris</code> data introducing <code>group_by(()</code>:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="tables-of-data.html#cb14-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
 <span id="cb14-2"><a href="tables-of-data.html#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>

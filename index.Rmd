@@ -39,7 +39,7 @@ regression_points <- get_regression_points(lifeExp.model)
 
 # Introduction {-}
 
-A vital part of data analysis is communicating the results of an analysis.  This usually takes the form or a report which summarizes the data analysis process and relevant findings.  There is a helpful guide to writing statistical reports following a statistical analysis in the **"Skills Tuesdays" Material** section of Moodle [here](https://moodle.gla.ac.uk/pluginfile.php/2549851/mod_resource/content/0/Statistical_Report_Writing_Handout.pdf) and you are expected to familiarize yourself with this resource, especially the sections on "Structure" and "Presentation". 
+A vital part of data analysis is communicating the results of an analysis.  This usually takes the form or a report which summarizes the data analysis process and relevant findings.  There is a helpful guide to writing statistical reports following a statistical analysis in the **"Skills Tuesdays" Material** section of Moodle and you are expected to familiarize yourself with this resource, especially the sections on "Structure" and "Presentation". 
 
 This week's tutorial introduces you to **R Markdown**, a very efficient way of producing statistical reports that you will use to produce reports in the two class tests and the group project in Data Analysis Skills.  You will also be required to use **R Markdown** to produce a report on your Masters Project in the summer.  
 

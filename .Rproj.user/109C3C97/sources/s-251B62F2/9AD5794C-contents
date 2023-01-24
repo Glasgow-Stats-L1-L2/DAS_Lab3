@@ -54,7 +54,7 @@ iris %>%
   kable_styling(font_size = 10, latex_options = "hold_position")
 ```
 
-Alternatively, we can use the `skim_with()` function in the `skimr` package, to produce summaries of each varialbe like this:
+Alternatively, we can use the `skim_with()` function, in the `skimr` package, to produce summaries of each varialbe like this:
 
 
 ```{r summariesskim, warning=FALSE}
@@ -68,6 +68,15 @@ my_skim(iris) %>%
   kable_styling(font_size = 10, latex_options = "hold_position")
 ```
 
+***
+
+**Further information**: Additional details on using the `skimr` package to produce summaries of variables can be found, in increasing detail, via these links:
+
+* [Code Through - skimr](https://rpubs.com/jsherwood/632878),
+* [Describing data sets](https://bookdown.org/f_lennert/introduction-to-r/descriptives.html) and 
+* [Using skimr (vignettes) ](https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html).
+
+***
 
 We can construct a table of summaries for the sepal length of the different species in the `iris` data introducing `group_by(()`:
 

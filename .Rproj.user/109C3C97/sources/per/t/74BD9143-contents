@@ -1,0 +1,118 @@
+---
+title: |
+  | Data Analysis
+  | Week 4 SLR Further Tasks Solutions
+output:
+  pdf_document:
+    latex_engine: xelatex
+    number_sections: no
+    fig_caption: yes
+header-includes: \usepackage{float}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA, out.width = '70%', fig.align = "center", fig.pos = 'H', warning=FALSE, message=FALSE)
+```
+
+```{r libraries, include=FALSE}
+library(ggplot2)
+library(dplyr)
+library(moderndive)
+library(gapminder)
+library(skimr)
+library(mvtnorm)
+library(gridExtra)
+library(tidyr)
+```
+
+<!-- ```{r evalshist, echo = FALSE, eval = TRUE, warning = FALSE} -->
+<!-- skim_with(numeric = list(hist = NULL)) -->
+<!-- ``` -->
+
+# Tasks
+
+1. Solutions given in the online quizzes
+
+2. Examine the relationship between teaching score and age in the `evals` data set. What is the value of the correlation coefficient? How would you interpret this verbally? Finally, produce a scatterplot of teaching score and age. 
+
+```{r task2-solution, echo = TRUE, eval = TRUE}
+
+evals %>%
+  get_correlation(formula = score ~ age)
+ggplot(evals, aes(x = age, y = score)) +
+  geom_point() +
+  labs(x = "Age", y = "Teaching Score",
+       title = "Relationship between Teaching Score and Age")
+```
+
+\newpage
+
+3. Perform a formal analysis of the relationship between teaching score and age by fitting a simple linear regression model. Superimpose your best-fitting line onto your scatterplot from Task 1.
+
+```{r task3-solution, echo = TRUE, eval = TRUE}
+
+model <- lm(score ~ age, data = evals)
+model
+ggplot(evals, aes(x = age, y = score)) +
+  geom_point() +
+  labs(x = "Age", y = "Teaching Score",
+       title = "Relationship between Teaching Score and Age") +
+  geom_smooth(method = "lm", se = FALSE)
+```
+
+\newpage
+
+4. Assess the model assumptions from Task 2 by plotting the residuals against the explanatory variable and fitted values, respectively. Also, plot a histogram of the residuals to assess whether they are normally distributed.
+
+```{r task4-solution, echo = TRUE, eval = TRUE}
+
+model <- lm(score ~ age, data = evals)
+regression.points <- get_regression_points(model)
+ggplot(regression.points, aes(x = age, y = residual)) +
+  geom_point() +
+  labs(x = "Age", y = "Residual") +
+  geom_hline(yintercept = 0, col = "blue", size = 1)
+
+ggplot(regression.points, aes(x = score_hat, y = residual)) +
+  geom_point() +
+  labs(x = "Fitted values", y = "Residual") +
+  geom_hline(yintercept = 0, col = "blue", size = 1)
+
+ggplot(regression.points, aes(x = residual)) +
+  geom_histogram(binwidth = 0.25, color = "white") +
+  labs(x = "Residual")
+```
+
+\newpage
+
+5. If we were interested in exploring the relationship between teaching score and age for male and female professors separately we could produce a scatterplot of teaching score and age with different symbols (and an appropriate legend) for males and females.  Create this plot and superimpose on it the linear regression models fitted to the male and female data separately.  Note you do not need to examine the models formally, we'll look at that in a future lab.
+
+```{r task5-solution, echo = TRUE, eval = TRUE}
+#names(evals)
+
+ggplot(evals, aes(x = age, y = score, shape = gender, color=gender)) +
+  geom_point() +
+  labs(x = "Age", y = "Teaching Score",
+       title = "Relationship between Teaching Score and Age", 
+       subtitle = "Data and fitted linear regression models shown for female and male staff") +
+  geom_smooth(method = "lm", se = FALSE, aes(color=gender, linetype=gender))
+```
+
+
+\newpage
+
+6. Perform the same analysis we did on life expectancy from the `gapminder` data set in 2007. However, subset the data for the year 1997. Are there any differences in the results across this 10 year period?
+
+```{r task6-solution, echo = TRUE, eval = TRUE}
+gapminder1997 <- gapminder %>%
+  filter(year == 1997) %>%
+  select(country, continent, lifeExp)
+
+lifeExp.by.continent <- gapminder1997 %>%
+  group_by(continent) %>%
+  summarize(median = median(lifeExp), mean = mean(lifeExp))
+lifeExp.by.continent
+
+lifeExp.model <- lm(lifeExp ~ continent, data = gapminder1997)
+lifeExp.model
+```

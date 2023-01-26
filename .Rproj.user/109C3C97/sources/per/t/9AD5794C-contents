@@ -58,9 +58,10 @@ Alternatively, we can use the `skim_with()` function, in the `skimr` package, to
 
 
 ```{r summariesskim, warning=FALSE}
-my_skim <- skim_with(numeric = sfl(hist = NULL))
+my_skim <- skim_with(numeric = sfl(hist = NULL), 
+                    base = sfl(n = length))
 my_skim(iris) %>%
-  transmute(Variable=skim_variable, Mean=numeric.mean, SD=numeric.sd,
+  transmute(Variable=skim_variable, n = n, Mean=numeric.mean, SD=numeric.sd,
             Min=numeric.p0, Median=numeric.p50,  Max=numeric.p100,
             IQR = numeric.p75-numeric.p50) %>%
   kable(caption = '\\label{tab:summariesskim} Summary statistics 
@@ -74,7 +75,7 @@ my_skim(iris) %>%
 
 * [Code Through - skimr](https://rpubs.com/jsherwood/632878),
 * [Describing data sets](https://bookdown.org/f_lennert/introduction-to-r/descriptives.html) and 
-* [Using skimr (vignettes) ](https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html).
+* [Using skimr (vignettes) ](https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html) or a "prettier" version [here](https://docs.ropensci.org/skimr/articles/skimr.html#introduction)
 
 ***
 

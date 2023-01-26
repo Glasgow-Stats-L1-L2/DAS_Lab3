@@ -268,14 +268,15 @@ Max
 </tbody>
 </table>
 <p>Alternatively, we can use the <code>skim_with()</code> function, in the <code>skimr</code> package, to produce summaries of each varialbe like this:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="tables-of-data.html#cb13-1" aria-hidden="true" tabindex="-1"></a>my_skim <span class="ot">&lt;-</span> <span class="fu">skim_with</span>(<span class="at">numeric =</span> <span class="fu">sfl</span>(<span class="at">hist =</span> <span class="cn">NULL</span>))</span>
-<span id="cb13-2"><a href="tables-of-data.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">my_skim</span>(iris) <span class="sc">%&gt;%</span></span>
-<span id="cb13-3"><a href="tables-of-data.html#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(<span class="at">Variable=</span>skim_variable, <span class="at">Mean=</span>numeric.mean, <span class="at">SD=</span>numeric.sd,</span>
-<span id="cb13-4"><a href="tables-of-data.html#cb13-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">Min=</span>numeric.p0, <span class="at">Median=</span>numeric.p50,  <span class="at">Max=</span>numeric.p100,</span>
-<span id="cb13-5"><a href="tables-of-data.html#cb13-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">IQR =</span> numeric.p75<span class="sc">-</span>numeric.p50) <span class="sc">%&gt;%</span></span>
-<span id="cb13-6"><a href="tables-of-data.html#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&#39;</span><span class="sc">\\</span><span class="st">label{tab:summariesskim} Summary statistics </span></span>
-<span id="cb13-7"><a href="tables-of-data.html#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="st">        on the sepal length of irises.&#39;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb13-8"><a href="tables-of-data.html#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="dv">10</span>, <span class="at">latex_options =</span> <span class="st">&quot;hold_position&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="tables-of-data.html#cb13-1" aria-hidden="true" tabindex="-1"></a>my_skim <span class="ot">&lt;-</span> <span class="fu">skim_with</span>(<span class="at">numeric =</span> <span class="fu">sfl</span>(<span class="at">hist =</span> <span class="cn">NULL</span>), </span>
+<span id="cb13-2"><a href="tables-of-data.html#cb13-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">base =</span> <span class="fu">sfl</span>(<span class="at">n =</span> length))</span>
+<span id="cb13-3"><a href="tables-of-data.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">my_skim</span>(iris) <span class="sc">%&gt;%</span></span>
+<span id="cb13-4"><a href="tables-of-data.html#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(<span class="at">Variable=</span>skim_variable, <span class="at">n =</span> n, <span class="at">Mean=</span>numeric.mean, <span class="at">SD=</span>numeric.sd,</span>
+<span id="cb13-5"><a href="tables-of-data.html#cb13-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">Min=</span>numeric.p0, <span class="at">Median=</span>numeric.p50,  <span class="at">Max=</span>numeric.p100,</span>
+<span id="cb13-6"><a href="tables-of-data.html#cb13-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">IQR =</span> numeric.p75<span class="sc">-</span>numeric.p50) <span class="sc">%&gt;%</span></span>
+<span id="cb13-7"><a href="tables-of-data.html#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&#39;</span><span class="sc">\\</span><span class="st">label{tab:summariesskim} Summary statistics </span></span>
+<span id="cb13-8"><a href="tables-of-data.html#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="st">        on the sepal length of irises.&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-9"><a href="tables-of-data.html#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="dv">10</span>, <span class="at">latex_options =</span> <span class="st">&quot;hold_position&quot;</span>)</span></code></pre></div>
 <table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:summariesskim">Table 2: </span> Summary statistics
@@ -285,6 +286,9 @@ on the sepal length of irises.
 <tr>
 <th style="text-align:left;">
 Variable
+</th>
+<th style="text-align:right;">
+n
 </th>
 <th style="text-align:right;">
 Mean
@@ -312,6 +316,9 @@ IQR
 Species
 </td>
 <td style="text-align:right;">
+150
+</td>
+<td style="text-align:right;">
 NA
 </td>
 <td style="text-align:right;">
@@ -333,6 +340,9 @@ NA
 <tr>
 <td style="text-align:left;">
 Sepal.Length
+</td>
+<td style="text-align:right;">
+150
 </td>
 <td style="text-align:right;">
 5.843333
@@ -358,6 +368,9 @@ Sepal.Length
 Sepal.Width
 </td>
 <td style="text-align:right;">
+150
+</td>
+<td style="text-align:right;">
 3.057333
 </td>
 <td style="text-align:right;">
@@ -381,6 +394,9 @@ Sepal.Width
 Petal.Length
 </td>
 <td style="text-align:right;">
+150
+</td>
+<td style="text-align:right;">
 3.758000
 </td>
 <td style="text-align:right;">
@@ -402,6 +418,9 @@ Petal.Length
 <tr>
 <td style="text-align:left;">
 Petal.Width
+</td>
+<td style="text-align:right;">
+150
 </td>
 <td style="text-align:right;">
 1.199333
@@ -429,7 +448,7 @@ Petal.Width
 <ul>
 <li><a href="https://rpubs.com/jsherwood/632878">Code Through - skimr</a>,</li>
 <li><a href="https://bookdown.org/f_lennert/introduction-to-r/descriptives.html">Describing data sets</a> and</li>
-<li><a href="https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html">Using skimr (vignettes)</a>.</li>
+<li><a href="https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html">Using skimr (vignettes)</a> or a "prettier" version <a href="https://docs.ropensci.org/skimr/articles/skimr.html#introduction">here</a></li>
 </ul>
 <hr />
 <p>We can construct a table of summaries for the sepal length of the different species in the <code>iris</code> data introducing <code>group_by(()</code>:</p>

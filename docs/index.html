@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
-
+<meta name="generator" content="quarto-1.7.32">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
 <title>Week 3: Introduction to Quarto – Week_3</title>
 <style>
 code{white-space: pre-wrap;}
@@ -21,8 +18,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +31,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -56,7 +54,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -64,17 +61,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/quarto-contrib/bootstrap-icons-1.9.1/all.css" rel="stylesheet">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/bootstrap-icons-1.9.1/all.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -100,12 +97,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -130,18 +122,13 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script>
-
-<link rel="stylesheet" href="styles.css">
+</script><link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="include/webex.css">
 </head>
-
-<body class="floating nav-fixed">
+<body class="floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Week_3</span>
@@ -153,7 +140,7 @@ window.Quarto = {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link active" href="./index.html" aria-current="page"> 
 <span class="menu-text">Notes</span></a>
   </li>  
@@ -162,55 +149,53 @@ window.Quarto = {
 <span class="menu-text">Week 3 Further Tasks</span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Contents</h2>
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a>
+<li>
+<a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a>
   <ul class="collapse">
-  <li><a href="#creating-a-new-quarto-document-from-scratch" id="toc-creating-a-new-quarto-document-from-scratch" class="nav-link" data-scroll-target="#creating-a-new-quarto-document-from-scratch"><span class="header-section-number">1.1</span> Creating a new Quarto document from scratch</a></li>
-  </ul></li>
+<li><a href="#creating-a-new-quarto-document-from-scratch" id="toc-creating-a-new-quarto-document-from-scratch" class="nav-link" data-scroll-target="#creating-a-new-quarto-document-from-scratch"><span class="header-section-number">1.1</span> Creating a new Quarto document from scratch</a></li>
+  </ul>
+</li>
   <li><a href="#title" id="toc-title" class="nav-link" data-scroll-target="#title"><span class="header-section-number">2</span> Title</a></li>
   <li><a href="#sections" id="toc-sections" class="nav-link" data-scroll-target="#sections"><span class="header-section-number">3</span> Sections</a></li>
-  <li><a href="#embedding-r-code" id="toc-embedding-r-code" class="nav-link" data-scroll-target="#embedding-r-code"><span class="header-section-number">4</span> Embedding R code</a>
+  <li>
+<a href="#embedding-r-code" id="toc-embedding-r-code" class="nav-link" data-scroll-target="#embedding-r-code"><span class="header-section-number">4</span> Embedding R code</a>
   <ul class="collapse">
-  <li><a href="#code-chunks" id="toc-code-chunks" class="nav-link" data-scroll-target="#code-chunks"><span class="header-section-number">4.1</span> Code chunks</a></li>
+<li><a href="#code-chunks" id="toc-code-chunks" class="nav-link" data-scroll-target="#code-chunks"><span class="header-section-number">4.1</span> Code chunks</a></li>
   <li><a href="#inline-code" id="toc-inline-code" class="nav-link" data-scroll-target="#inline-code"><span class="header-section-number">4.2</span> Inline code</a></li>
-  </ul></li>
-  <li><a href="#tables" id="toc-tables" class="nav-link" data-scroll-target="#tables"><span class="header-section-number">5</span> Tables</a>
+  </ul>
+</li>
+  <li>
+<a href="#tables" id="toc-tables" class="nav-link" data-scroll-target="#tables"><span class="header-section-number">5</span> Tables</a>
   <ul class="collapse">
-  <li><a href="#tables-by-hand" id="toc-tables-by-hand" class="nav-link" data-scroll-target="#tables-by-hand"><span class="header-section-number">5.1</span> Tables ‘by hand’</a></li>
-  </ul></li>
-  <li><a href="#figures" id="toc-figures" class="nav-link" data-scroll-target="#figures"><span class="header-section-number">6</span> Figures</a>
+<li><a href="#tables-by-hand" id="toc-tables-by-hand" class="nav-link" data-scroll-target="#tables-by-hand"><span class="header-section-number">5.1</span> Tables ‘by hand’</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#figures" id="toc-figures" class="nav-link" data-scroll-target="#figures"><span class="header-section-number">6</span> Figures</a>
   <ul class="collapse">
-  <li><a href="#embedding-external-images" id="toc-embedding-external-images" class="nav-link" data-scroll-target="#embedding-external-images"><span class="header-section-number">6.1</span> Embedding external images</a></li>
+<li><a href="#embedding-external-images" id="toc-embedding-external-images" class="nav-link" data-scroll-target="#embedding-external-images"><span class="header-section-number">6.1</span> Embedding external images</a></li>
   <li><a href="#embedding-r-generated-figures" id="toc-embedding-r-generated-figures" class="nav-link" data-scroll-target="#embedding-r-generated-figures"><span class="header-section-number">6.2</span> Embedding R generated figures</a></li>
-  </ul></li>
+  </ul>
+</li>
   <li><a href="#mathematics" id="toc-mathematics" class="nav-link" data-scroll-target="#mathematics"><span class="header-section-number">7</span> Mathematics</a></li>
   <li><a href="#quarto-presentations" id="toc-quarto-presentations" class="nav-link" data-scroll-target="#quarto-presentations"><span class="header-section-number">8</span> Quarto Presentations</a></li>
   <li><a href="#rendering" id="toc-rendering" class="nav-link" data-scroll-target="#rendering"><span class="header-section-number">9</span> Rendering</a></li>
-  </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+  </ul><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">Week 3: Introduction to Quarto</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
 </div>
 
@@ -225,22 +210,18 @@ window.Quarto = {
   
 
 
-</header>
-
-
-<section id="introduction" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
-<p>This week we will take what we have learned in previous weeks and produce a report using Quarto . Quarto is a multi-language system that allows reports and presentation to be created within R, thus allowing for R code and output to be easily embedded within a report, a presentation or even a Blog!. Hence, all of the R code and plots obtained from an analysis are contained within a single file.</p>
+</header><section id="introduction" class="level1" data-number="1"><h1 data-number="1">
+<span class="header-section-number">1</span> Introduction</h1>
+<p>This week we will take what we have learned in previous weeks and produce a report using Quarto . Quarto is a multi-language system that allows reports and presentation to be created within R, thus allowing for R code and output to be easily embedded within a report, a presentation or even a Blog! Hence, all of the R code and plots obtained from an analysis are contained within a single file.</p>
 <p>Under Week 3 on Moodle there is an Example Report produced using Quarto relating to fitting a regression model using one numerical explanatory variable (we’ll revise Regression in Week 4). The corresponding Quarto <code>.qmd</code> file can also be downloaded and opened in R to see how the document was produced (press the <code>Render</code> button to create the HTML/PDF version). It is advised to have this document open within RStudio while working through the remaining sections in order to see examples put into practice.</p>
 <p>The following sections will take you through the different steps required to produce the Example Report on Moodle. For creating a new Quarto file from scratch see Section 1.1, otherwise move onto Section 2.</p>
-<section id="creating-a-new-quarto-document-from-scratch" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="creating-a-new-quarto-document-from-scratch"><span class="header-section-number">1.1</span> Creating a new Quarto document from scratch</h2>
+<section id="creating-a-new-quarto-document-from-scratch" class="level2" data-number="1.1"><h2 data-number="1.1" class="anchored" data-anchor-id="creating-a-new-quarto-document-from-scratch">
+<span class="header-section-number">1.1</span> Creating a new Quarto document from scratch</h2>
 <p>If you want to create a new R Markdown document from scratch within RStudio you can go to:</p>
 <p><code>File -&gt; New File -&gt; Quarto  Document...</code></p>
 <p>This will open the following window within RStudio:</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/quarto1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="500"></p>
+<figure class="figure"><p><img src="images/quarto1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="500"></p>
 </figure>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -267,31 +248,26 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>There is a template on the DAS Moodle page which you can download to get started. To see what the HTML/PDF of the template document looks like click on the <img src="images/rstudio-render-button.png" width="16" height="13"> <code>Render</code> button at the top of the document window. You can also download this <a href="https://quarto.org/docs/get-started/hello/rstudio/_hello.qmd">template</a> from the quarto webpage containing simple instructions on how to do some basic stuff using Quarto .</p>
+<p>There is a template on the DAS Moodle page which you can download to get started. To see what the HTML/PDF of the template document looks like click on the <img src="images/rstudio-render-button.png" width="16" height="13"><code>Render</code> button at the top of the document window. You can also download this <a href="https://quarto.org/docs/get-started/hello/rstudio/_hello.qmd">template</a> from the quarto webpage containing simple instructions on how to do some basic stuff using Quarto .</p>
 </div>
 </div>
-</section>
-</section>
-<section id="title" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Title</h1>
+</section></section><section id="title" class="level1" data-number="2"><h1 data-number="2">
+<span class="header-section-number">2</span> Title</h1>
 <p>The title of the document can be found at the top of the <code>.qmd</code> file within its preamble, which is shown below. When titling your document, ensure the title is within inverted commas.</p>
 <pre><code>---
 title: "Example Report"
 ---</code></pre>
 <p>A Quarto document can be edited in the two modes of the RStudio editor: visual (on the left) and source (on the right). The visual mode offers a more friendly interface for editing you document (it includes a toolbar for quick edit options), while the source mode allows you to see and edit the underlying R markdown text code.</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/quarto2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="763"></p>
+<figure class="figure"><p><img src="images/quarto2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="763"></p>
 </figure>
 </div>
 <p>You can switch between these two modes at anytime. Will now cover different aspects of building a Quarto document and provide the instructions on how to do this using either the visual editor or the source mode.</p>
-</section>
-<section id="sections" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Sections</h1>
+</section><section id="sections" class="level1" data-number="3"><h1 data-number="3">
+<span class="header-section-number">3</span> Sections</h1>
 <p>Under the <code>source</code> mode, sections within a Quarto document are created using <code>#</code>. For example, <code># Introduction</code> will create a section titled <strong>Introduction</strong>. Alternatively, if you use the <code>visual</code> mode, you can include a new section by selecting a proper heading under the block-format display of the toolbar as follows:</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/quarto3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="734"></p>
+<figure class="figure"><p><img src="images/quarto3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="734"></p>
 </figure>
 </div>
 <p>If you want section to be numbered you can set <code>number_sections: true</code> within the preamble of the document:</p>
@@ -303,8 +279,7 @@ number-sections: true
 <pre><code># Introduction {#sec-intro}</code></pre>
 <p>where <code>sec-intro</code> is the name chosen for this particular section. For the <code>visual</code> model you can click on the edit attributes settings <img src="images/threedots.png" class="img-fluid" width="17"> (right hand side of the section heading) and write the label you want on the ID box of the pop-up window:</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/quarto4.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figure class="figure"><p><img src="images/quarto4.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -327,8 +302,7 @@ Important
 <p>where the 1 is a clickable hyperlink that will take you to the beginning of that section within the document. If you are using the <code>visual</code> mode, you can easily include cross-references by clicking on <code>Insert▾➠ Cross Reference</code></p>
 <p>Note that for section labels to appear on the references list, you must save your document first (click on <code>File ➠ Save as…</code> and save your document with a proper name). Then all the labels (i.e., labels of sections, figures, equations, etc.) will appear on the Insert Cross Reference pop up window. Then simply click on <code>Insert▾</code> to add the selected reference to your document.</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/quarto5.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="528"></p>
+<figure class="figure"><p><img src="images/quarto5.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="528"></p>
 </figure>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -357,11 +331,10 @@ Task
 <p>Try typing <code>/</code> symbol on your main document while using the visual mode and then use the drop menu to add a new section to your document ( Tip: you can type the letter <code>h</code> to search for the different header types while the drop menu is being displayed).</p>
 </div>
 </div>
-</section>
-<section id="embedding-r-code" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Embedding R code</h1>
-<section id="code-chunks" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="code-chunks"><span class="header-section-number">4.1</span> Code chunks</h2>
+</section><section id="embedding-r-code" class="level1" data-number="4"><h1 data-number="4">
+<span class="header-section-number">4</span> Embedding R code</h1>
+<section id="code-chunks" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="code-chunks">
+<span class="header-section-number">4.1</span> Code chunks</h2>
 <p>Code chunks allow for R code to be embedded within a document. Not only can the code be easily included within a document, the code can also be evaluated. Hence, you can produce an entire report based on an analysis that is contained within a single file instead of having separate files containing your R code, plot images and comments.</p>
 <p>R Code can be evaluated directly on the Quarto document or in the R console (the latter would be similar to run your code from an R script). To select where you want your code to be evaluated click on the setting options <img src="images/settings.png" class="img-fluid" width="19"> (next to the Render button <img src="images/rstudio-render-button.png" class="img-fluid" width="22"> ) and choose between <code>Chunk Output Inline</code> (default) if you want your code to be evaluated within the Quarto document or <code>Chunk Output in Console</code> to evaluate your code directly on the R console. If you select the latter, the following options will be added to the document preamble:</p>
 <pre><code>editor_options: 
@@ -369,8 +342,7 @@ Task
 <p>To add an R Code Chunk you can simply click on the <img src="images/chunk.png" class="img-fluid" width="29"> symbol (or using keyboard shortcut <code>cmd+alt+i</code> or <code>ctrl+alt+i</code> for windows users) on either <code>visual</code> or <code>source</code> modes.</p>
 <p>R code chunks are identified with&nbsp;<code>{r}</code> with multiple (optional) chunk options which we can access by typing <code>#|</code>&nbsp;at the beginning of the line.</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/quarto6.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="485"></p>
+<figure class="figure"><p><img src="images/quarto6.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="485"></p>
 </figure>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -392,10 +364,14 @@ If you are in the source mode the R chunks will appear as follow:</p>
 </div>
 <p>Some of the most common arguments you will use in your R Chunks are:</p>
 <ul>
-<li><strong>echo</strong>: include the R code within the code chunk in the document (true/false);</li>
-<li><strong>eval</strong>: evaluate the R code within the code chunk (true/false);</li>
-<li><strong>warning</strong>: suppress warnings from R (true/false); and</li>
-<li><strong>message</strong>: suppress messages from R (true/false).</li>
+<li>
+<strong>echo</strong>: include the R code within the code chunk in the document (true/false);</li>
+<li>
+<strong>eval</strong>: evaluate the R code within the code chunk (true/false);</li>
+<li>
+<strong>warning</strong>: suppress warnings from R (true/false); and</li>
+<li>
+<strong>message</strong>: suppress messages from R (true/false).</li>
 </ul>
 <p>For example, let’s say we wanted to select the <code>score</code> and <code>bty_avg</code> variables from the <code>evals</code> data set to be used later, we can do that using the following code chunk:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>```{r}</span>
@@ -441,26 +417,22 @@ Important
 </div>
 <p>Lets look at another example:</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| message: false</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| warning: false</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="in">library(gapminder)</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="in">library(skimr)</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="in">library(ggplot2)</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>In this case, we set <code>warning</code> and <code>message</code> to <code>false</code> to indicate that we want to suppress any warnings or messages (e.g., the ones that you usually get when loading R packages). Another useful options is <code>eval.</code> If we set <code>eval: false</code> then we indicate that we don’t want the chunk output to be included in the rendered document (this is useful for example if we just want to show our R code without rendering its output):</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| eval: false</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data=evals.scores,aes(y=score,x=bty_avg)) +</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point()</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>evals.scores,<span class="fu">aes</span>(<span class="at">y=</span>score,<span class="at">x=</span>bty_avg)) <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
@@ -478,43 +450,37 @@ Note
 </div>
 </div>
 <p>Additional arguments can be passed to code chunks other than those displayed above. The most useful ones other than those relate to figure sizing and positioning and are discussed in the upcoming sections.</p>
-</section>
-<section id="inline-code" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="inline-code"><span class="header-section-number">4.2</span> Inline code</h2>
+</section><section id="inline-code" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="inline-code">
+<span class="header-section-number">4.2</span> Inline code</h2>
 <p>R code can be included within text by enclosing the code with <code>`r `</code>. This allows for expressions to be evaluated by R and not be hardwired by the user. For example, if you wanted to convey the number of observations within <code>evals.scores</code> then we can enclose <code>nrow(evals.scores)</code> within <code>`r `</code> to obtain the number of observations, rather than hardwiring 463 into the text. This can help to prevent potential human error when presenting information. It can also help with consistency and ease-of-use, since <code>n = nrow(evals.scores)</code> could be stored as an R object and referred to whenever necessary within the text using inline R code.</p>
-</section>
-</section>
-<section id="tables" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Tables</h1>
-<p>There are several ways to produce tables in Quarto . Here, a couple of different approaches will be presented. The first approach uses the <code>gt()</code> function from the <code>gt</code> package and essentially puts a wrapper around the tables produced in R in order to make them more visually appealing within the Quarto document. Here we will just cover the basics, but if you want to learn more about creating eye-catching tables with <code>gt</code> visit <a href="https://gt.rstudio.com/articles/intro-creating-gt-tables.html">here</a>.</p>
+</section></section><section id="tables" class="level1" data-number="5"><h1 data-number="5">
+<span class="header-section-number">5</span> Tables</h1>
+<p>There are several ways to produce tables in Quarto . Here, a couple of different approaches will be presented. The first approach uses the <code><a href="https://gt.rstudio.com/reference/gt.html">gt()</a></code> function from the <code>gt</code> package and essentially puts a wrapper around the tables produced in R in order to make them more visually appealing within the Quarto document. Here we will just cover the basics, but if you want to learn more about creating eye-catching tables with <code>gt</code> visit <a href="https://gt.rstudio.com/articles/intro-creating-gt-tables.html">here</a>.</p>
 <p>Let’s say we wanted to create a table of the first 5 rows of the <code>iris</code> data from the <code>datasets</code> library. We can create the table using the <code>gt</code> function as follows:</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">|&gt;</span> </span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n=</span><span class="dv">5</span>) <span class="sc">|&gt;</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div id="gdvwrsyglx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#gdvwrsyglx table {
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://gt.rstudio.com">gt</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">iris</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu">slice_head</span><span class="op">(</span>n<span class="op">=</span><span class="fl">5</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://gt.rstudio.com/reference/gt.html">gt</a></span><span class="op">(</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
+<div id="jvpbwiiceu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jvpbwiiceu table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#gdvwrsyglx thead, #gdvwrsyglx tbody, #gdvwrsyglx tfoot, #gdvwrsyglx tr, #gdvwrsyglx td, #gdvwrsyglx th {
+#jvpbwiiceu thead, #jvpbwiiceu tbody, #jvpbwiiceu tfoot, #jvpbwiiceu tr, #jvpbwiiceu td, #jvpbwiiceu th {
   border-style: none;
 }
 
-#gdvwrsyglx p {
+#jvpbwiiceu p {
   margin: 0;
   padding: 0;
 }
 
-#gdvwrsyglx .gt_table {
+#jvpbwiiceu .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -540,12 +506,12 @@ Note
   border-left-color: #D3D3D3;
 }
 
-#gdvwrsyglx .gt_caption {
+#jvpbwiiceu .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#gdvwrsyglx .gt_title {
+#jvpbwiiceu .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -557,7 +523,7 @@ Note
   border-bottom-width: 0;
 }
 
-#gdvwrsyglx .gt_subtitle {
+#jvpbwiiceu .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -569,7 +535,7 @@ Note
   border-top-width: 0;
 }
 
-#gdvwrsyglx .gt_heading {
+#jvpbwiiceu .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -581,13 +547,13 @@ Note
   border-right-color: #D3D3D3;
 }
 
-#gdvwrsyglx .gt_bottom_border {
+#jvpbwiiceu .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#gdvwrsyglx .gt_col_headings {
+#jvpbwiiceu .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -602,7 +568,7 @@ Note
   border-right-color: #D3D3D3;
 }
 
-#gdvwrsyglx .gt_col_heading {
+#jvpbwiiceu .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -622,7 +588,7 @@ Note
   overflow-x: hidden;
 }
 
-#gdvwrsyglx .gt_column_spanner_outer {
+#jvpbwiiceu .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -634,15 +600,15 @@ Note
   padding-right: 4px;
 }
 
-#gdvwrsyglx .gt_column_spanner_outer:first-child {
+#jvpbwiiceu .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#gdvwrsyglx .gt_column_spanner_outer:last-child {
+#jvpbwiiceu .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#gdvwrsyglx .gt_column_spanner {
+#jvpbwiiceu .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -654,11 +620,11 @@ Note
   width: 100%;
 }
 
-#gdvwrsyglx .gt_spanner_row {
+#jvpbwiiceu .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#gdvwrsyglx .gt_group_heading {
+#jvpbwiiceu .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -684,7 +650,7 @@ Note
   text-align: left;
 }
 
-#gdvwrsyglx .gt_empty_group_heading {
+#jvpbwiiceu .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -699,15 +665,15 @@ Note
   vertical-align: middle;
 }
 
-#gdvwrsyglx .gt_from_md > :first-child {
+#jvpbwiiceu .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#gdvwrsyglx .gt_from_md > :last-child {
+#jvpbwiiceu .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#gdvwrsyglx .gt_row {
+#jvpbwiiceu .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -726,7 +692,7 @@ Note
   overflow-x: hidden;
 }
 
-#gdvwrsyglx .gt_stub {
+#jvpbwiiceu .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -739,7 +705,7 @@ Note
   padding-right: 5px;
 }
 
-#gdvwrsyglx .gt_stub_row_group {
+#jvpbwiiceu .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -753,15 +719,15 @@ Note
   vertical-align: top;
 }
 
-#gdvwrsyglx .gt_row_group_first td {
+#jvpbwiiceu .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#gdvwrsyglx .gt_row_group_first th {
+#jvpbwiiceu .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#gdvwrsyglx .gt_summary_row {
+#jvpbwiiceu .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -771,16 +737,16 @@ Note
   padding-right: 5px;
 }
 
-#gdvwrsyglx .gt_first_summary_row {
+#jvpbwiiceu .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#gdvwrsyglx .gt_first_summary_row.thick {
+#jvpbwiiceu .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#gdvwrsyglx .gt_last_summary_row {
+#jvpbwiiceu .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -790,7 +756,7 @@ Note
   border-bottom-color: #D3D3D3;
 }
 
-#gdvwrsyglx .gt_grand_summary_row {
+#jvpbwiiceu .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -800,7 +766,7 @@ Note
   padding-right: 5px;
 }
 
-#gdvwrsyglx .gt_first_grand_summary_row {
+#jvpbwiiceu .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -810,7 +776,7 @@ Note
   border-top-color: #D3D3D3;
 }
 
-#gdvwrsyglx .gt_last_grand_summary_row_top {
+#jvpbwiiceu .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -820,11 +786,11 @@ Note
   border-bottom-color: #D3D3D3;
 }
 
-#gdvwrsyglx .gt_striped {
+#jvpbwiiceu .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#gdvwrsyglx .gt_table_body {
+#jvpbwiiceu .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -833,7 +799,7 @@ Note
   border-bottom-color: #D3D3D3;
 }
 
-#gdvwrsyglx .gt_footnotes {
+#jvpbwiiceu .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -847,7 +813,7 @@ Note
   border-right-color: #D3D3D3;
 }
 
-#gdvwrsyglx .gt_footnote {
+#jvpbwiiceu .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -856,7 +822,7 @@ Note
   padding-right: 5px;
 }
 
-#gdvwrsyglx .gt_sourcenotes {
+#jvpbwiiceu .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -870,7 +836,7 @@ Note
   border-right-color: #D3D3D3;
 }
 
-#gdvwrsyglx .gt_sourcenote {
+#jvpbwiiceu .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -878,86 +844,83 @@ Note
   padding-right: 5px;
 }
 
-#gdvwrsyglx .gt_left {
+#jvpbwiiceu .gt_left {
   text-align: left;
 }
 
-#gdvwrsyglx .gt_center {
+#jvpbwiiceu .gt_center {
   text-align: center;
 }
 
-#gdvwrsyglx .gt_right {
+#jvpbwiiceu .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#gdvwrsyglx .gt_font_normal {
+#jvpbwiiceu .gt_font_normal {
   font-weight: normal;
 }
 
-#gdvwrsyglx .gt_font_bold {
+#jvpbwiiceu .gt_font_bold {
   font-weight: bold;
 }
 
-#gdvwrsyglx .gt_font_italic {
+#jvpbwiiceu .gt_font_italic {
   font-style: italic;
 }
 
-#gdvwrsyglx .gt_super {
+#jvpbwiiceu .gt_super {
   font-size: 65%;
 }
 
-#gdvwrsyglx .gt_footnote_marks {
+#jvpbwiiceu .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#gdvwrsyglx .gt_asterisk {
+#jvpbwiiceu .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#gdvwrsyglx .gt_indent_1 {
+#jvpbwiiceu .gt_indent_1 {
   text-indent: 5px;
 }
 
-#gdvwrsyglx .gt_indent_2 {
+#jvpbwiiceu .gt_indent_2 {
   text-indent: 10px;
 }
 
-#gdvwrsyglx .gt_indent_3 {
+#jvpbwiiceu .gt_indent_3 {
   text-indent: 15px;
 }
 
-#gdvwrsyglx .gt_indent_4 {
+#jvpbwiiceu .gt_indent_4 {
   text-indent: 20px;
 }
 
-#gdvwrsyglx .gt_indent_5 {
+#jvpbwiiceu .gt_indent_5 {
   text-indent: 25px;
 }
 
-#gdvwrsyglx .katex-display {
+#jvpbwiiceu .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#gdvwrsyglx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#jvpbwiiceu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
-
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-<thead>
-<tr class="gt_col_headings header">
+<thead><tr class="gt_col_headings header">
 <th id="Sepal.Length" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Sepal.Length</th>
 <th id="Sepal.Width" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Sepal.Width</th>
 <th id="Petal.Length" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Petal.Length</th>
 <th id="Petal.Width" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Petal.Width</th>
 <th id="Species" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Species</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_right" headers="Sepal.Length">5.1</td>
@@ -996,62 +959,56 @@ Note
 </tr>
 </tbody>
 </table>
-
 </div>
 </div>
 </div>
 <p>Lets customize this table a bit by (1) adding a table caption and number (2) modifying the labels of the columns and (3) create a grouping structure for the petals and sepals width and length columns:</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: tbl-iris</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| tbl-cap: First five entries of the iris Data set</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-iris</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: First five entries of the iris Data set</span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="in">iris |&gt; </span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="in">  slice_head(n=5) |&gt;</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="in">  gt() |&gt;</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="in">   fmt_number(decimals=2) |&gt;</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="in"> tab_spanner(</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="in">    label = "Sepals",</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="in">    columns = c(Sepal.Length, Sepal.Width)</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="in">  ) |&gt;</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="in">  tab_spanner(</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="in">    label = "Petals",</span></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="in">    columns = c(Petal.Length, Petal.Width)</span></span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="in">  ) |&gt;</span></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="in">  cols_label(</span></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="in">    Sepal.Length = html("Length (cm)"),</span></span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="in">    Sepal.Width = html("Width (cm)"),</span></span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="in">    Petal.Length = html("Length (cm)"),</span></span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="in">    Petal.Width = html("Width (cm)")</span></span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a><span class="in">  )</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">|&gt;</span> </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n=</span><span class="dv">5</span>) <span class="sc">|&gt;</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>   <span class="fu">fmt_number</span>(<span class="at">decimals=</span><span class="dv">2</span>) <span class="sc">|&gt;</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a> <span class="fu">tab_spanner</span>(</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="st">"Sepals"</span>,</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">c</span>(Sepal.Length, Sepal.Width)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_spanner</span>(</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="st">"Petals"</span>,</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">c</span>(Petal.Length, Petal.Width)</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_label</span>(</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">Sepal.Length =</span> <span class="fu">html</span>(<span class="st">"Length (cm)"</span>),</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">Sepal.Width =</span> <span class="fu">html</span>(<span class="st">"Width (cm)"</span>),</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">Petal.Length =</span> <span class="fu">html</span>(<span class="st">"Length (cm)"</span>),</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">Petal.Width =</span> <span class="fu">html</span>(<span class="st">"Width (cm)"</span>)</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div id="tbl-iris" class="cell quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-iris-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+</details><div id="tbl-iris" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-iris-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;1: First five entries of the iris Data set
-</figcaption>
-<div aria-describedby="tbl-iris-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+</figcaption><div aria-describedby="tbl-iris-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="wyzqeoyust" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#wyzqeoyust table {
+<div id="jxnyenarwa" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jxnyenarwa table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#wyzqeoyust thead, #wyzqeoyust tbody, #wyzqeoyust tfoot, #wyzqeoyust tr, #wyzqeoyust td, #wyzqeoyust th {
+#jxnyenarwa thead, #jxnyenarwa tbody, #jxnyenarwa tfoot, #jxnyenarwa tr, #jxnyenarwa td, #jxnyenarwa th {
   border-style: none;
 }
 
-#wyzqeoyust p {
+#jxnyenarwa p {
   margin: 0;
   padding: 0;
 }
 
-#wyzqeoyust .gt_table {
+#jxnyenarwa .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1077,12 +1034,12 @@ Table&nbsp;1: First five entries of the iris Data set
   border-left-color: #D3D3D3;
 }
 
-#wyzqeoyust .gt_caption {
+#jxnyenarwa .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#wyzqeoyust .gt_title {
+#jxnyenarwa .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1094,7 +1051,7 @@ Table&nbsp;1: First five entries of the iris Data set
   border-bottom-width: 0;
 }
 
-#wyzqeoyust .gt_subtitle {
+#jxnyenarwa .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1106,7 +1063,7 @@ Table&nbsp;1: First five entries of the iris Data set
   border-top-width: 0;
 }
 
-#wyzqeoyust .gt_heading {
+#jxnyenarwa .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1118,13 +1075,13 @@ Table&nbsp;1: First five entries of the iris Data set
   border-right-color: #D3D3D3;
 }
 
-#wyzqeoyust .gt_bottom_border {
+#jxnyenarwa .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#wyzqeoyust .gt_col_headings {
+#jxnyenarwa .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1139,7 +1096,7 @@ Table&nbsp;1: First five entries of the iris Data set
   border-right-color: #D3D3D3;
 }
 
-#wyzqeoyust .gt_col_heading {
+#jxnyenarwa .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1159,7 +1116,7 @@ Table&nbsp;1: First five entries of the iris Data set
   overflow-x: hidden;
 }
 
-#wyzqeoyust .gt_column_spanner_outer {
+#jxnyenarwa .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1171,15 +1128,15 @@ Table&nbsp;1: First five entries of the iris Data set
   padding-right: 4px;
 }
 
-#wyzqeoyust .gt_column_spanner_outer:first-child {
+#jxnyenarwa .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#wyzqeoyust .gt_column_spanner_outer:last-child {
+#jxnyenarwa .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#wyzqeoyust .gt_column_spanner {
+#jxnyenarwa .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1191,11 +1148,11 @@ Table&nbsp;1: First five entries of the iris Data set
   width: 100%;
 }
 
-#wyzqeoyust .gt_spanner_row {
+#jxnyenarwa .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#wyzqeoyust .gt_group_heading {
+#jxnyenarwa .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1221,7 +1178,7 @@ Table&nbsp;1: First five entries of the iris Data set
   text-align: left;
 }
 
-#wyzqeoyust .gt_empty_group_heading {
+#jxnyenarwa .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1236,15 +1193,15 @@ Table&nbsp;1: First five entries of the iris Data set
   vertical-align: middle;
 }
 
-#wyzqeoyust .gt_from_md > :first-child {
+#jxnyenarwa .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#wyzqeoyust .gt_from_md > :last-child {
+#jxnyenarwa .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#wyzqeoyust .gt_row {
+#jxnyenarwa .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1263,7 +1220,7 @@ Table&nbsp;1: First five entries of the iris Data set
   overflow-x: hidden;
 }
 
-#wyzqeoyust .gt_stub {
+#jxnyenarwa .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1276,7 +1233,7 @@ Table&nbsp;1: First five entries of the iris Data set
   padding-right: 5px;
 }
 
-#wyzqeoyust .gt_stub_row_group {
+#jxnyenarwa .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1290,15 +1247,15 @@ Table&nbsp;1: First five entries of the iris Data set
   vertical-align: top;
 }
 
-#wyzqeoyust .gt_row_group_first td {
+#jxnyenarwa .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#wyzqeoyust .gt_row_group_first th {
+#jxnyenarwa .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#wyzqeoyust .gt_summary_row {
+#jxnyenarwa .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1308,16 +1265,16 @@ Table&nbsp;1: First five entries of the iris Data set
   padding-right: 5px;
 }
 
-#wyzqeoyust .gt_first_summary_row {
+#jxnyenarwa .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#wyzqeoyust .gt_first_summary_row.thick {
+#jxnyenarwa .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#wyzqeoyust .gt_last_summary_row {
+#jxnyenarwa .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1327,7 +1284,7 @@ Table&nbsp;1: First five entries of the iris Data set
   border-bottom-color: #D3D3D3;
 }
 
-#wyzqeoyust .gt_grand_summary_row {
+#jxnyenarwa .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1337,7 +1294,7 @@ Table&nbsp;1: First five entries of the iris Data set
   padding-right: 5px;
 }
 
-#wyzqeoyust .gt_first_grand_summary_row {
+#jxnyenarwa .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1347,7 +1304,7 @@ Table&nbsp;1: First five entries of the iris Data set
   border-top-color: #D3D3D3;
 }
 
-#wyzqeoyust .gt_last_grand_summary_row_top {
+#jxnyenarwa .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1357,11 +1314,11 @@ Table&nbsp;1: First five entries of the iris Data set
   border-bottom-color: #D3D3D3;
 }
 
-#wyzqeoyust .gt_striped {
+#jxnyenarwa .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#wyzqeoyust .gt_table_body {
+#jxnyenarwa .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1370,7 +1327,7 @@ Table&nbsp;1: First five entries of the iris Data set
   border-bottom-color: #D3D3D3;
 }
 
-#wyzqeoyust .gt_footnotes {
+#jxnyenarwa .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1384,7 +1341,7 @@ Table&nbsp;1: First five entries of the iris Data set
   border-right-color: #D3D3D3;
 }
 
-#wyzqeoyust .gt_footnote {
+#jxnyenarwa .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1393,7 +1350,7 @@ Table&nbsp;1: First five entries of the iris Data set
   padding-right: 5px;
 }
 
-#wyzqeoyust .gt_sourcenotes {
+#jxnyenarwa .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1407,7 +1364,7 @@ Table&nbsp;1: First five entries of the iris Data set
   border-right-color: #D3D3D3;
 }
 
-#wyzqeoyust .gt_sourcenote {
+#jxnyenarwa .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1415,76 +1372,75 @@ Table&nbsp;1: First five entries of the iris Data set
   padding-right: 5px;
 }
 
-#wyzqeoyust .gt_left {
+#jxnyenarwa .gt_left {
   text-align: left;
 }
 
-#wyzqeoyust .gt_center {
+#jxnyenarwa .gt_center {
   text-align: center;
 }
 
-#wyzqeoyust .gt_right {
+#jxnyenarwa .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#wyzqeoyust .gt_font_normal {
+#jxnyenarwa .gt_font_normal {
   font-weight: normal;
 }
 
-#wyzqeoyust .gt_font_bold {
+#jxnyenarwa .gt_font_bold {
   font-weight: bold;
 }
 
-#wyzqeoyust .gt_font_italic {
+#jxnyenarwa .gt_font_italic {
   font-style: italic;
 }
 
-#wyzqeoyust .gt_super {
+#jxnyenarwa .gt_super {
   font-size: 65%;
 }
 
-#wyzqeoyust .gt_footnote_marks {
+#jxnyenarwa .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#wyzqeoyust .gt_asterisk {
+#jxnyenarwa .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#wyzqeoyust .gt_indent_1 {
+#jxnyenarwa .gt_indent_1 {
   text-indent: 5px;
 }
 
-#wyzqeoyust .gt_indent_2 {
+#jxnyenarwa .gt_indent_2 {
   text-indent: 10px;
 }
 
-#wyzqeoyust .gt_indent_3 {
+#jxnyenarwa .gt_indent_3 {
   text-indent: 15px;
 }
 
-#wyzqeoyust .gt_indent_4 {
+#jxnyenarwa .gt_indent_4 {
   text-indent: 20px;
 }
 
-#wyzqeoyust .gt_indent_5 {
+#jxnyenarwa .gt_indent_5 {
   text-indent: 25px;
 }
 
-#wyzqeoyust .katex-display {
+#jxnyenarwa .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#wyzqeoyust div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#jxnyenarwa div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
-
 <table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <colgroup>
 <col style="width: 20%">
@@ -1548,7 +1504,6 @@ Petals
 </tr>
 </tbody>
 </table>
-
 </div>
 </div>
 </div>
@@ -1556,26 +1511,23 @@ Petals
 </div>
 </div>
 <p>The first thing we’ve done is to add a table label using <code>label: tbl-planets</code> .This will allow us to add cross-reference in the text (Remember to use the <code>tbl-</code>&nbsp;prefix to make them cross-referenceable). For example we can write <code>@tbl-iris</code> in our document to reference and create an hyperlink directed to the <a href="#tbl-iris" class="quarto-xref">Table&nbsp;1</a> (you can also use the tool bar <code>Insert▾➠ Cross Reference</code> to do this). Then, the option <code>tbl-cap:</code> allow us to add caption to the table. Finally, we set the number of decimals to 2 with the <code>fmt_number</code> function and then we use the <code>tab_spanner</code> and <code>cols_label</code> functions to change some features of our <code>gt</code> table.</p>
-<section id="tables-by-hand" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="tables-by-hand"><span class="header-section-number">5.1</span> Tables ‘by hand’</h2>
+<section id="tables-by-hand" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="tables-by-hand">
+<span class="header-section-number">5.1</span> Tables ‘by hand’</h2>
 <p>Tables can also be produced ‘by hand’ in Quarto . For example, the table above corresponding to the first 5 rows of the <code>iris</code> data can be produced by hand by clicking on the <code>Table</code> option in the toolbar (next to <code>Insert▾</code> while using the <code>visual</code> mode) and selecting the number of rows and columns.</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/quarto7.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="435"></p>
+<figure class="figure"><p><img src="images/quarto7.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="435"></p>
 </figure>
 </div>
 <p>We can manually fill each entry to produce the following table:</p>
 <table class="caption-top table">
 <caption>The fist 5 rows of the iris data.</caption>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th style="text-align: center;">Sepal Length</th>
 <th style="text-align: center;">Sepal Width</th>
 <th style="text-align: center;">Petal Length</th>
 <th style="text-align: center;">Petal Width</th>
 <th style="text-align: right;">Species</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: center;">5.1</td>
@@ -1637,65 +1589,58 @@ Note
 <p>You can read more about authoring Quarto tables <a href="https://quarto.org/docs/authoring/tables.html">here</a>.</p>
 </div>
 </div>
-</section>
-</section>
-<section id="figures" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Figures</h1>
-<section id="embedding-external-images" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="embedding-external-images"><span class="header-section-number">6.1</span> Embedding external images</h2>
+</section></section><section id="figures" class="level1" data-number="6"><h1 data-number="6">
+<span class="header-section-number">6</span> Figures</h1>
+<section id="embedding-external-images" class="level2" data-number="6.1"><h2 data-number="6.1" class="anchored" data-anchor-id="embedding-external-images">
+<span class="header-section-number">6.1</span> Embedding external images</h2>
 <p>Including plots and figures within a Quarto document is straightforward. To include an external figure you can use the <code>visual</code> mode tool bar and click on <code>Insert▾➠ Figure/Image...</code> and then browse to the path where you image is, or alternatively write the <em>url</em> from which the image should be obtained. The pop-up windows allows you also to write a caption and also to modify the image alignment with respect the main text.</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/quarto8.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figure class="figure"><p><img src="images/quarto8.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 <p>If you want to add cross-referencing you can add the <code>fig-</code> prefix in the attributes tab of the pop-up windows:</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/quarto9.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="379"></p>
+<figure class="figure"><p><img src="images/quarto9.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="379"></p>
 </figure>
 </div>
 <p>The source code would then look something like:</p>
 <pre><code>![](images/myimage.png){#fig-image1}</code></pre>
-</section>
-<section id="embedding-r-generated-figures" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="embedding-r-generated-figures"><span class="header-section-number">6.2</span> Embedding R generated figures</h2>
+</section><section id="embedding-r-generated-figures" class="level2" data-number="6.2"><h2 data-number="6.2" class="anchored" data-anchor-id="embedding-r-generated-figures">
+<span class="header-section-number">6.2</span> Embedding R generated figures</h2>
 <p>Very often we would like to use the R plots generated from your analysis instead of using external figures. To achieve this, the R code for the plot is simply included within a code chunk including additional arguments for plot size and positioning. For example, to include the scatterplot of teaching and beauty:</p>
 <div class="cell" data-layout-align="center">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: fig-scatterplot1</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-cap: Relationship between teaching and beauty scores. The best-fitting line has been superimposed.</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-width: 4</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-height: 5</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-align: center</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="in">#| message: false</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-scatterplot1</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: Relationship between teaching and beauty scores. The best-fitting line has been superimposed.</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-width: 4</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 5</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-align: center</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
 <span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(evals.scores, aes(x = bty_avg, y = score)) +</span></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() +</span></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="in">  labs(x = "Beauty Score", y = "Teaching Score") +</span></span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_smooth(method = "lm", se = FALSE)</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(evals.scores, <span class="fu">aes</span>(<span class="at">x =</span> bty_avg, <span class="at">y =</span> score)) <span class="sc">+</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Beauty Score"</span>, <span class="at">y =</span> <span class="st">"Teaching Score"</span>) <span class="sc">+</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
+</details><div class="cell-output-display">
 <div id="fig-scatterplot1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-scatterplot1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-scatterplot1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="index_files/figure-html/fig-scatterplot1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scatterplot1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Relationship between teaching and beauty scores. The best-fitting line has been superimposed.
-</figcaption>
-</figure>
+</figcaption></figure>
 </div>
 </div>
 </div>
 <p>Here, we set the chunk label to include the <code>fig-</code> prefix so we can cross-reference using the @ prefix. For example <code>@fig-scatterplot1</code> will create a hyperlink to <a href="#fig-scatterplot1" class="quarto-xref">Figure&nbsp;1</a>. Then we added a figure caption using the <code>fig-cap</code> option. For size and positioning of the figure we can include:</p>
 <ul>
-<li><code>fig.width</code>: an integer value denoting the width of the figure;</li>
-<li><code>fig.height</code>: an integer value denoting the height of the figure;</li>
-<li><code>fig.align</code>: the alignment of the figure within the body of the document</li>
+<li>
+<code>fig.width</code>: an integer value denoting the width of the figure;</li>
+<li>
+<code>fig.height</code>: an integer value denoting the height of the figure;</li>
+<li>
+<code>fig.align</code>: the alignment of the figure within the body of the document</li>
 </ul>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1708,7 +1653,11 @@ Figure&nbsp;1: Relationship between teaching and beauty scores. The best-fitting
 </div>
 <div class="callout-body-container callout-body">
 <p>What other argument would you need to include if you wish to show the chunk plot output only?</p>
-<p><select class="webex-select"><option value="blank"></option><option value="">eval: false</option><option value="">echo: true</option><option value="answer">echo: false</option><option value="">eval: true</option></select></p>
+<p><select class="webex-select"><option value="blank"></option>
+<option value="">eval: false</option>
+<option value="">echo: true</option>
+<option value="answer">echo: false</option>
+<option value="">eval: true</option></select></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -1724,17 +1673,17 @@ Note
 <p>You can read more about authoring Quarto tables <a href="https://quarto.org/docs/authoring/figures.html">here</a>.</p>
 </div>
 </div>
-</section>
-</section>
-<section id="mathematics" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Mathematics</h1>
+</section></section><section id="mathematics" class="level1" data-number="7"><h1 data-number="7">
+<span class="header-section-number">7</span> Mathematics</h1>
 <p>Mathematics and statistical equations can be presented nicely within a Quarto document. For example, the following equation referring to a linear regression model:</p>
 <p><span class="math display">\[y_i = \alpha + \beta x_i + \epsilon_i, ~~~~ \epsilon_i \sim N(0, \sigma^2),\]</span> is done using the following:</p>
 <p><code>$$ y_i = \alpha + \beta x_i + \epsilon_i, ~~~~~ \``epsilon_i``\sim N(0, \sigma^2), $$</code></p>
 <p>That is, we use:</p>
 <ul>
-<li><code>$$</code> signs to produce mathematics which is centred, and a single <code>$</code> to include mathematics within a sentence or paragraph; in visual mode you can go to <code>Insert ▾  ➠ LaTeX Math ▸</code> and chose between <code>Inlay Math</code> or <code>Display Math</code>.</li>
-<li><code>_</code> and <code>^</code> are used for subscripts and superscripts, respectively;</li>
+<li>
+<code>$$</code> signs to produce mathematics which is centred, and a single <code>$</code> to include mathematics within a sentence or paragraph; in visual mode you can go to <code>Insert ▾  ➠ LaTeX Math ▸</code> and chose between <code>Inlay Math</code> or <code>Display Math</code>.</li>
+<li>
+<code>_</code> and <code>^</code> are used for subscripts and superscripts, respectively;</li>
 <li>Greek letters are obtained using <code>\</code> and the letters name, i.e.&nbsp;<code>\alpha</code> gives <span class="math inline">\(\alpha\)</span>; and</li>
 <li>tildes (<code>~</code>) are used to put spacing between notation.</li>
 </ul>
@@ -1767,52 +1716,26 @@ Note
 <p>For additional tricks inserting mathematics into documents see <a href="https://quarto.org/docs/visual-editor/technical.html">here</a>.</p>
 </div>
 </div>
-</section>
-<section id="quarto-presentations" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> Quarto Presentations</h1>
+</section><section id="quarto-presentations" class="level1" data-number="8"><h1 data-number="8">
+<span class="header-section-number">8</span> Quarto Presentations</h1>
 <p>Another great feature of Quarto is that it allows you to create presentations and supports a variety of formats such as <a href="https://quarto.org/docs/presentations/revealjs/">html</a>, <a href="https://quarto.org/docs/presentations/powerpoint.html">power point</a> and <a href="https://quarto.org/docs/presentations/beamer.html">beamer</a>. Today we will focus on creating an html presentation (which can be also printed as a pdf).</p>
 <p>Creating an html presentation is as easy as setting the output format to <code>revealjs</code>:</p>
-<pre><code>
-
-
-
-
-
----
+<pre><code>---
 title: "My title"
 author: "Jafet Belmont"
 format: revealjs
----
-
-
-
-
-
-</code></pre>
+---</code></pre>
 <p>This will create a title slide that includes the provided <code>title</code> and <code>author</code>. (you can remove any of these options if you the author or title page to be removed). Now we will switch to the <code>visual</code> mode. You will notice that a new set of options have now appeared:</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/quarto13.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figure class="figure"><p><img src="images/quarto13.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 <p>This new tab will allow us to interact with the different features of our presentation. Lets begin by creating some slides. Slides in Quarto are delineated using level 1 and 2 headings:</p>
-<pre><code>
-
-
-
-
-
----
+<pre><code>---
 title: "My title"
 author: "Jafet Belmont"
 format: revealjs
 ---
-
-
-
-
-
-
 
 # Topic 1
 
@@ -1825,23 +1748,11 @@ format: revealjs
 
 ## Slide 2.1</code></pre>
 <p>In the example above we use level 1 headings for creating a new sections and level 2 heading for defining the new slides. Alternatively we can use horizontal rules to create the slides as follows (on <code>visual</code> mode click on <code>Insert▾ ➠ Horizontal Rule</code>):</p>
-<pre><code>
-
-
-
-
-
----
+<pre><code>---
 title: "My title"
 author: "Jafet Belmont"
 format: revealjs
 ---
-
-
-
-
-
-
 
   Content of slide 1
 
@@ -1849,25 +1760,12 @@ format: revealjs
 
   Content of slide 2
 
-
-
-
-
-
-
 ---</code></pre>
 <p>You can add bullet and numbered lists to each slide as follows (on <code>visual</code> mode click on <img src="images/bullets.png" width="24" height="25"> or <img src="images/numbered.png" width="30" height="25"> for adding bullet or numbered lists respectively):</p>
 <pre><code>---
-
-
-
-
-
-
 title: "My title"
 author: "Jafet Belmont"
 format: revealjs
-
 ---
 
 ## Slide 1
@@ -1890,26 +1788,20 @@ format: revealjs
     -   Bullet 2.2</code></pre>
 <p>Notice that indentation allow us to create a hierarchical structure within our lists of items. You can modify some of the option of the list by clicking the <img src="images/threedots.png" class="img-fluid" width="15"> button on the right side of it. This will open a pop-up window where you can modify some of its attributes. For example, you can ask Quarto to display each item one by one as you move forward through the slides:</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/quarto11.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="366"></p>
+<figure class="figure"><p><img src="images/quarto11.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="366"></p>
 </figure>
 </div>
 <p>If you want to arrange the content of you slide into different columns you can insert a multiple column output. To do this switch to <code>visual</code> mode and click on <code>Insert▾ ➠ Slide Columns</code>). You can then fill each column:</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/quarto12.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figure class="figure"><p><img src="images/quarto12.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 <p>Sometimes the text size in your slide might be too large to fit in your slide and you would like to make it smaller. You can then use the .smaller class to use a smaller typeface so that more text fits on the slide.</p>
-<pre><code>
----
-
+<pre><code>---
 title: "My title"
 author: "Jafet Belmont"
 format: revealjs
-
 ---
-
 
 ## Slide with small text {.smaller}
 
@@ -1918,8 +1810,7 @@ format: revealjs
  </code></pre>
 <p>&nbsp;If you are on the visual model, click on the slide settings <img src="images/threedots.png" class="img-fluid" width="17"> and then type <code>.smaller</code> on the class box:</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/quarto14.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="373"></p>
+<figure class="figure"><p><img src="images/quarto14.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="373"></p>
 </figure>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -1940,7 +1831,8 @@ Note
 <li><p><code>column</code>: Display output in a column adjacent to the code</p></li>
 <li><p><code>column-fragment</code>: Display output in a column adjacent to the code and delay showing it until its explicitly stepped through by advancing the slides.</p></li>
 <li><p><code>fragment</code>: Delay the output dipslay until it is explicitly stepped through by advancing the slides.</p></li>
-<li><p><code>slide</code>: Display output on the subsequent slide.</p>
+<li>
+<p><code>slide</code>: Display output on the subsequent slide.</p>
 <p>For example, the source code for a slide containing an R code would look something like this:</p>
 <pre><code>---
 title: "My title"
@@ -1949,6 +1841,7 @@ format: revealjs
 ---
 
 ## Slide with R Code {.smaller}
+
 
 ::: {.cell output-location='column-fragment'}
 
@@ -1971,11 +1864,11 @@ ggplot(evals.scores, aes(x = bty_avg, y = score)) +
 ::: {.cell-output-display}
 ![](index_files/figure-html/unnamed-chunk-7-1.png){width=672}
 :::
-:::</code></pre></li>
-</ul>
-</section>
-<section id="rendering" class="level1" data-number="9">
-<h1 data-number="9"><span class="header-section-number">9</span> Rendering</h1>
+:::
+</code></pre>
+</li>
+</ul></section><section id="rendering" class="level1" data-number="9"><h1 data-number="9">
+<span class="header-section-number">9</span> Rendering</h1>
 <p>You can render a Quarto document or a presentation by clicking the Render button <img src="images/rstudio-render-button.png" class="img-fluid" width="22">.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1992,8 +1885,7 @@ Note
 </div>
 <p>When you render a Quarto document, the R code in you chunks is executed by the <a href="http://yihui.name/knitr/">knitr</a>&nbsp;R-package and a new markdown (.md) document is then created. This file includes all of your code and its output. <a href="http://pandoc.org/">pandoc</a> then processes this markdown to create the finished format. <em>The Render button encapsulates these actions and executes them in the right order for you.</em></p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/rstudio-qmd-how-it-works.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figure class="figure"><p><img src="images/rstudio-qmd-how-it-works.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 <p>Note that HTML rendered documents will typically have a number of external dependencies (e.g.&nbsp;images, CSS style sheets, JavaScript, etc.) which are contained in an external <code>_files</code> directory alongside your document. If you share youe HTML rendered file without the external files, it will lose all of its previous formatting and style. Alternatively, you can create a self-contained HTML document using the the <code>embed-resources</code> option in quarto as follows:</p>
@@ -2019,10 +1911,7 @@ Important
 </div>
 
 
-</section>
-
-</main> <!-- /main -->
-<script>
+</section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -2227,289 +2116,294 @@ window.onload = function() {
   update_total_correct();
 }
 
-</script>
-<script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
-    }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
+</script><script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
+      return false;
     }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
         }
-        return container.innerHTML
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -2517,187 +2411,162 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 </div> <!-- /content -->
-
 
 
 

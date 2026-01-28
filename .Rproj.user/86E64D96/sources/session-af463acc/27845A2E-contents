@@ -41,6 +41,8 @@ Under Week 3 on Moodle there is an Example Report produced using Quarto relating
 
 The following sections will take you through the different steps required to produce the Example Report on Moodle. For creating a new Quarto file from scratch see Section 1.1, otherwise move onto Section 2.
 
+In Week 3 Further Tasks you will see some instructions to create your own quarto document using a toy example. This should help you get to grips with the basics of Quarto before attempting anything more complex.
+
 ## Creating a new Quarto document from scratch
 
 If you want to create a new R Markdown document from scratch within RStudio you can go to:
